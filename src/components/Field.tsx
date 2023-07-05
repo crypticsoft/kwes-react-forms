@@ -1,7 +1,15 @@
 import * as React from 'react';
 import clsx from 'clsx';
 
-const Field = ({ name, help, className, controlClassName, children }) => (
+type FieldProps = {
+  name: string;
+  help: string;
+  className: string;
+  controlClassName: string;
+  children: React.ReactNode;
+}
+
+const Field = ({ name, help, className, controlClassName, children }: FieldProps) => (
   <div 
     className={clsx('field', className)}
     key={name}

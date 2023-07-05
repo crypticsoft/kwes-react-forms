@@ -7,9 +7,9 @@ import * as React from 'react';
  */
 export default function useDefaultProps(props, error) {
   const [defaults, setDefaults] = React.useState({});
-  let args = {};
 
   React.useEffect(() => {
+    const args = {};
     // "text" input
     if (props.type === 'text' || props.type === 'hidden' || props.type === 'email') {
       Object.assign(args, {
@@ -42,7 +42,7 @@ export default function useDefaultProps(props, error) {
     }
 
     setDefaults(args);
-  }, []);
+  }, [props, error]);
 
   return defaults;
 }

@@ -7,34 +7,6 @@ import SelectControl from './SelectControl';
 import RadioGroupControl from './RadioGroupControl';
 import CheckboxGroupControl from './CheckboxGroupControl';
 
-interface Field {
-  type: string;
-  name: string;
-  label: string;
-  placeholder?: string;
-  help?: string;
-  rules?: string;
-  options?: object;
-  defaultOption?: object;
-}
-
-interface Group {
-  group: { field: Field; size?: number }[];
-}
-
-interface FormData {
-  title?: string;
-  subTitle?: string;
-  fields?: (Field | Group)[];
-  disclaimer?: string;
-  submission?: { button?: string };
-}
-
-interface FormProps {
-  id: string;
-  data: FormData;
-}
-
 const isDev = process.env.NODE_ENV !== 'production';
 
 const parseField = (field: Field) => {

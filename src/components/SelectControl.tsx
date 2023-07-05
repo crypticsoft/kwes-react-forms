@@ -27,7 +27,7 @@ const SelectControl = (props) => {
           id={`${props.name}-select`}
           name={props.name}
           value={value}
-          rules={props.rules}
+          rules={props.rules} // eslint-disable-line react/no-unknown-property
           onChange={(event) => setValue(event.currentTarget.value)}
           {...ariaProps}
         >

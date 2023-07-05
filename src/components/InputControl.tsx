@@ -26,7 +26,7 @@ const InputControl = (props) => {
         type={props.type}
         className="input"
         onChange={(event) => setValue(event.currentTarget.value)}
-        rules={props.rules}
+        rules={props.rules} // eslint-disable-line react/no-unknown-property
         placeholder={props.placeholder}
         value={value}
         {...ariaProps}

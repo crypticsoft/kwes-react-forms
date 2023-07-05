@@ -17,15 +17,9 @@ const columnData = {
   }
 };
 
-
 describe('SelectControl', () => {
   it('renders the select control with options', () => {
-    const { getByRole } = render(
-      <SelectControl
-        {...columnData.field}
-        key={columnData.field.name}
-      />
-    );
+    const { getByRole } = render(<SelectControl {...columnData.field} /> as React.ReactElement);
 
     expect(getByRole('option', { name: 'Select One' }).selected).toBe(true);
     expect(getByRole('option', { name: 'Alabama' })).toBeInTheDocument();
@@ -35,12 +29,7 @@ describe('SelectControl', () => {
   });
 
   it('calls the onChange function when an option is selected', () => {
-    const { getByRole } = render(
-      <SelectControl
-        {...columnData.field}
-        key={columnData.field.name}
-      />
-    );
+    const { getByRole } = render(<SelectControl {...columnData.field} /> as React.ReactElement);
     fireEvent.change(getByRole('combobox'), { target: { value: 'AZ' } });
     expect(getByRole('option', { name: 'Arizona' }).selected).toBe(true);
   });

@@ -7,7 +7,7 @@ export const setDefaultValues = (result, presets) => {
   const presetObj = {};
   const isSelectField = (field) => field.type === 'select';
 
-  for (let fieldValue of presets) {
+  for (const fieldValue of presets) {
     presetObj[Object.keys(fieldValue)[0]] = Object.values(fieldValue)[0];
   }
 

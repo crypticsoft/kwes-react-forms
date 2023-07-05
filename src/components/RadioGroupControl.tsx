@@ -23,7 +23,10 @@ const RadioGroupControl = (props) => {
   return (
     <div className="field">
       <div className="control radio-control">
-        <fieldset data-kw-group rules={props.rules}>
+        <fieldset
+          data-kw-group
+          rules={props.rules} // eslint-disable-line react/no-unknown-property
+        >
           <legend>{props.label}</legend>
           <Option
             name={props.name}

@@ -23,7 +23,7 @@ import Field from './Field';
     <fieldset
       data-kw-group
       className="kw-checkbox-group"
-      rules={props.rules}
+      rules={props.rules} // eslint-disable-line react/no-unknown-property
     >
       <legend>{props.label}</legend>
 
