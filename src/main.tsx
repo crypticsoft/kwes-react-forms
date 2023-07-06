@@ -2,16 +2,19 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
 
-const rootElement = document.getElementById('root');
+const allForms = document.querySelectorAll('[data-form-id]');
 
-if (rootElement) {
-  ReactDOM.createRoot(rootElement).render(
-    <React.StrictMode>
-      <App
-        formId={rootElement.getAttribute('data-form-id')}
-        location={rootElement.getAttribute('data-location')}
-        presets={rootElement.getAttribute('data-presets')}
-      />
-    </React.StrictMode>,
-  )
+if (allForms.length > 0) {
+  // mount each form instance on the page
+  allForms.forEach((form) => {
+    ReactDOM.createRoot(form).render(
+      <React.StrictMode>
+        <App
+          formId={form.getAttribute('data-form-id')}
+          location={form.getAttribute('data-location')}
+          presets={form.getAttribute('data-presets')}
+        />
+      </React.StrictMode>,
+    )
+  });
 }

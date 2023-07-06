@@ -21,7 +21,7 @@ This is a dynamic form library that extends the [kwes.io](https://kwesforms.com/
 [] Submission message\
 [] Multi-Form support\
 [] [Field Type: Date picker](https://kwesforms.com/docs/v2/datepicker)
-
+[x] Multiple form support
 ## Form Setup
 
 - In development, use `test` mode
@@ -48,11 +48,12 @@ This is a dynamic form library that extends the [kwes.io](https://kwesforms.com/
 ```HTML
 <div
   id="app"
-  data-formId="L6C4A1tTGJgxfefI6vtX"
+  data-form-id="L6C4A1tTGJgxfefI6vtX"
   data-location="/form01.json"
   data-presets='[{"name": "Tester"},{"lname": "Jim"}]'
 ></div>
 ```
+** please note ** The `data-form-id` and `data-location` attributes are required. You can simply add multiple div instances to embed multiple forms on the page.
 
 ## JSON Configuration
 
