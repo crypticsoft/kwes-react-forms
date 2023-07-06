@@ -9,28 +9,31 @@ import CheckboxGroupControl from './CheckboxGroupControl';
 
 const isDev = process.env.NODE_ENV !== 'production';
 
-const parseField = (field: Field) => {
-  switch (field.type) {
-    case 'select':
-      return <SelectControl {...field} key={field.name} />;
 
-    case 'text':
-    case 'hidden':
-      return <InputControl {...field} key={field.name} />;
-
-    case 'checkbox':
-      return <CheckboxControl {...field} key={field.name} />;
-
-    case 'checkboxGroup':
-      return <CheckboxGroupControl {...field} key={field.name} />;
-
-    case 'radio':
-      return <RadioGroupControl {...field} key={field.name} />;
-
-    default:
-      return <InputControl {...field} key={field.name} />;
-  }
+/**
+ * Control Factory
+ * Add a new key when a new field type is added
+ * [key]: Field['type']
+ */
+const controlFactory: ControlFactory = {
+  select: (props) => <SelectControl {...props} />,
+  text: (props) => <InputControl {...props} />,
+  email: (props) => <InputControl {...props} />,
+  hidden: (props) => <InputControl {...props} />,
+  checkbox: (props) => <CheckboxControl {...props} />,
+  checkboxGroup: (props) => <CheckboxGroupControl {...props} />,
+  radio: (props) => <RadioGroupControl {...props} />,
 };
+
+/**
+ * createControl: Input Control Factory
+ * @param { Field } field
+ */
+function createControl(field: Field): JSX.Element {
+  const control = controlFactory[field.type as ControlType];
+  return control({ ...field, key: field.name });
+}
+
 
 const generateFields = (fields: (Field | Group)[]) =>
   fields.map((field, idx) => {
@@ -47,7 +50,7 @@ const generateFields = (fields: (Field | Group)[]) =>
           : ['column', `is-6`]; // 50% by default, unless specified
         fields.push(
             <div key={`group-${index}`} className={clsx(columnClasses)}>
-              {parseField(f.field)}
+              {createControl(f.field)}
             </div>
         );
       });
@@ -60,10 +63,10 @@ const generateFields = (fields: (Field | Group)[]) =>
     // has a single field
     return isHidden === false && hasGroup === false ? (
       <div className="columns" key={`group-${idx}`}>
-        <div className="is-12 column">{parseField(field as Field)}</div>
+        <div className="is-12 column">{createControl(field as Field)}</div>
       </div>
     ) : (
-      parseField(field as Field)
+      createControl(field as Field)
     );
   });
 

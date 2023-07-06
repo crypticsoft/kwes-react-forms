@@ -30,6 +30,11 @@ FormComponent.defaultProps = {
     title: '',
     subTitle: '',
     disclaimer: '',
-    fields: []
-  }
+    fields: [],
+    submission: {
+      button: '',
+      title: '',
+      subTitle: '',
+    },  
+  },
 };
