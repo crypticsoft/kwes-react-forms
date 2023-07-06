@@ -73,6 +73,8 @@ const Form: React.FC<FormProps> = ({ id, data }) => {
   const formAction = `https://kwes.io/api/foreign/forms/${id}`;
   const disclaimer = data.disclaimer;
   const submitButton = data.submission?.button || 'Submit';
+  const successMessage = data.submission?.success || null;
+  const errorMessage = data.submission?.error || null;
 
   useEffect(() => {
     if (innerRef.current) {
@@ -86,12 +88,14 @@ const Form: React.FC<FormProps> = ({ id, data }) => {
   return (
     <form
       className="kwes-form"
+      noValidate
+      acceptCharset="utf-8"
       ref={innerRef}
       action={formAction}
       {...(isDev && { mode: 'test' })}
       {...(!formAction && { style: { display: 'none' } })}
-      noValidate
-      acceptCharset="utf-8"
+      {...(successMessage && { successMessage })}
+      {...(errorMessage && { errorMessage })}
       // no-reload="true"
     >
       {data && (

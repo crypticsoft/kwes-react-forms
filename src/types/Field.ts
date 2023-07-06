@@ -21,7 +21,7 @@
     subTitle?: string;
     fields?: (Field | Group)[];
     disclaimer?: string;
-    submission?: { button?: string };
+    submission?: { button?: string, success?: string, error?: string };
   }
   
   interface FormProps {

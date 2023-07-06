@@ -64,6 +64,14 @@ This is a dynamic form library that extends the [kwes.io](https://kwesforms.com/
   "id": "SWXrdEPodyOKj9vXYmwU",
   "title": "Welcome!",
   "subTitle": "Please fill out the form below:",
+  "disclaimer": "When you agree to these terms, you agree to allow us to contact you via email.",
+
+  "submission": {
+    "button": "Submit",
+    "success": "Your form has been submitted successfully.",
+    "error": "Opps! Your form has errors. Please check the form and try again."
+  },
+
   "fields": [
     {
       "type": "text",
