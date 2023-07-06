@@ -1,4 +1,5 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
+import kwesforms from 'kwesforms';
 import InputControl from './InputControl';
 import CheckboxControl from './CheckboxControl';
 import SelectControl from './SelectControl';
@@ -72,6 +73,12 @@ const Form: React.FC<FormProps> = ({ id, data }) => {
   const formAction = `https://kwes.io/api/foreign/forms/${id}`;
   const disclaimer = data.disclaimer;
   const submitButton = data.submission?.button || 'Submit';
+
+  useEffect(() => {
+    if (innerRef.current) {
+      kwesforms.init();
+    }
+  }, [innerRef]);
   /**
    * KWES Form
    * todo: consider adding error messages around required fields. ie form "id"

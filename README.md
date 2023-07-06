@@ -6,10 +6,10 @@ This is a dynamic form library that extends the [kwes.io](https://kwesforms.com/
 
 ![Screenshot](./screenshot.png?raw=true 'Form Demo')
 
-## TypeScript Support
+@TODO items:
+[] Minify steps for css assets to reduce bundle size
 [] Update legacy jest tests to use vitest
 [] MSW mocks with `setupTests`
-[] ESLint (resolve existing errors)
 
 ## Features
 
