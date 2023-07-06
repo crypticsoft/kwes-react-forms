@@ -1,5 +1,5 @@
   interface Field {
-    type: 'select' | 'text' | 'hidden' | 'checkbox' | 'checkboxGroup' | 'radio' | 'email';
+    type: 'select' | 'text' | 'hidden' | 'checkbox' | 'checkboxGroup' | 'radio' | 'email' | 'textarea' | 'password';
     name: string;
     label: string;
     placeholder?: string;
@@ -10,6 +10,7 @@
     className?: string;
     controlClassName?: string;
     children?: React.ReactNode;
+    rows?: number;
   }
 
   interface Group {
@@ -17,9 +18,10 @@
   }
   
   interface FormData {
+    id: string;
     title?: string;
     subTitle?: string;
-    fields?: (Field | Group)[];
+    fields: (Field | Group)[];
     disclaimer?: string;
     submission?: { button?: string, success?: string, error?: string };
   }

@@ -4,7 +4,7 @@ type FieldProps = {
   name: string;
   help: string;
   className: string;
-  controlClassName: string;
+  controlClassName?: string;
   children: React.ReactNode;
 }
 

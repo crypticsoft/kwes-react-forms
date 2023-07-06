@@ -56,6 +56,7 @@ This is a dynamic form library that extends the [kwes.io](https://kwesforms.com/
 ** please note ** The `data-form-id` and `data-location` attributes are required. You can simply add multiple div instances to embed multiple forms on the page.
 
 ## JSON Configuration
+* "Starter Plan" * is needed for the Success & Error Messaging and add'l features.
 
 - Basic Example:
 

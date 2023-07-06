@@ -31,25 +31,21 @@ const SelectControl = (props) => {
           onChange={(event) => setValue(event.currentTarget.value)}
           {...ariaProps}
         >
-          {!props.defaultOption && <Option {...defaultOption} />}
+          {!props.defaultOption && <option value=''>Select One</option>}
           {props.defaultOption !== undefined &&
             typeof props.defaultOption === 'object' && (
-              <Option {...props.defaultOption} />
+              <option value={Object.values(props.defaultOption).pop()}>{Object.keys(props.defaultOption).pop()}</option>
             )}
-          <Option {...props.options} />
+          {Object.entries(props.options).map(([key, optionValue]) => (
+            <option key={key} value={optionValue}>
+              {key}
+            </option>
+          ))}
         </select>
       </div>
       {props.help && <p className="help">{props.help}</p>}
     </div>
   );
 };
-
-// option (object map)
-const Option = (obj) =>
-  Object.entries(obj).map(([k, v]) => (
-    <option key={k} value={v}>
-      {k}
-    </option>
-  ));
 
 export default SelectControl;

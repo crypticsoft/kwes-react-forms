@@ -5,6 +5,7 @@ import CheckboxControl from './CheckboxControl';
 import SelectControl from './SelectControl';
 import RadioGroupControl from './RadioGroupControl';
 import CheckboxGroupControl from './CheckboxGroupControl';
+import TextAreaControl from './TextAreaControl';
 
 const isDev = process.env.NODE_ENV !== 'production';
 
@@ -16,6 +17,8 @@ const isDev = process.env.NODE_ENV !== 'production';
 const controlFactory: ControlFactory = {
   select: (props) => <SelectControl {...props} />,
   text: (props) => <InputControl {...props} />,
+  textarea: (props) => <TextAreaControl {...props} />,
+  password: (props) => <InputControl {...props} />,
   email: (props) => <InputControl {...props} />,
   hidden: (props) => <InputControl {...props} />,
   checkbox: (props) => <CheckboxControl {...props} />,
@@ -32,13 +35,13 @@ function createControl(field: Field): JSX.Element {
   return control({ ...field, key: field.name });
 }
 
-
 const generateFields = (fields: (Field | Group)[]) =>
   fields.map((field, idx) => {
     const hasGroup = Object.keys(field)[0] === 'group';
     const isHidden = (field as Field).type === 'hidden';
     let fieldName;
     const fields: React.ReactElement[] = [];
+
     // has a group of fields
     if (hasGroup) {
       (field as Group).group.forEach((f, index) => {
@@ -52,12 +55,14 @@ const generateFields = (fields: (Field | Group)[]) =>
             </div>
         );
       });
+
       return (
         <div className="columns" key={`group-column-${fieldName}`}>
           {fields && fields.map((f) => f)}
         </div>
       );
     }
+
     // has a single field
     return isHidden === false && hasGroup === false ? (
       <div className="columns" key={`group-${idx}`}>
@@ -68,6 +73,12 @@ const generateFields = (fields: (Field | Group)[]) =>
     );
   });
 
+/**
+ * Form Component
+ * @param id { string }
+ * @param data { FormData }
+ * @returns JSX.Element
+ */
 const Form: React.FC<FormProps> = ({ id, data }) => {
   const innerRef = useRef<HTMLFormElement>(null);
   const formAction = `https://kwes.io/api/foreign/forms/${id}`;
@@ -78,7 +89,11 @@ const Form: React.FC<FormProps> = ({ id, data }) => {
 
   useEffect(() => {
     if (innerRef.current) {
-      kwesforms.init();
+      try {
+        kwesforms.init();
+      } catch(error) {
+        console.error(error);
+      }
     }
   }, [innerRef]);
   /**
@@ -94,8 +109,8 @@ const Form: React.FC<FormProps> = ({ id, data }) => {
       action={formAction}
       {...(isDev && { mode: 'test' })}
       {...(!formAction && { style: { display: 'none' } })}
-      {...(successMessage && { successMessage })}
-      {...(errorMessage && { errorMessage })}
+      {...(successMessage && { "success-message": successMessage })}
+      {...(errorMessage && { "error-message": errorMessage })}
       // no-reload="true"
     >
       {data && (
