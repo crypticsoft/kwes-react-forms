@@ -1,6 +1,4 @@
-import React, { useEffect, useRef } from 'react';
-import kwesforms from 'kwesforms';
-import clsx from 'clsx';
+import React, { useRef } from 'react';
 import InputControl from './InputControl';
 import CheckboxControl from './CheckboxControl';
 import SelectControl from './SelectControl';
@@ -8,7 +6,6 @@ import RadioGroupControl from './RadioGroupControl';
 import CheckboxGroupControl from './CheckboxGroupControl';
 
 const isDev = process.env.NODE_ENV !== 'production';
-
 
 /**
  * Control Factory
@@ -49,7 +46,7 @@ const generateFields = (fields: (Field | Group)[]) =>
           ? ['column', `is-${f.size}`]
           : ['column', `is-6`]; // 50% by default, unless specified
         fields.push(
-            <div key={`group-${index}`} className={clsx(columnClasses)}>
+            <div key={`group-${index}`} className={columnClasses.join(' ')}>
               {createControl(f.field)}
             </div>
         );
@@ -71,13 +68,8 @@ const generateFields = (fields: (Field | Group)[]) =>
   });
 
 const Form: React.FC<FormProps> = ({ id, data }) => {
-  useEffect(() => {
-    // init kwesforms
-    if (id) kwesforms.init();
-  }, [id]);
-
   const innerRef = useRef<HTMLFormElement>(null);
-  const formAction = id ? `https://kwes.io/api/foreign/forms/${id}` : '';
+  const formAction = `https://kwes.io/api/foreign/forms/${id}`;
   const disclaimer = data.disclaimer;
   const submitButton = data.submission?.button || 'Submit';
   /**

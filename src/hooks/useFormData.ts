@@ -1,23 +1,13 @@
 import * as React from 'react';
 import { setDefaultValues } from '../helpers/setDefaultValues';
 
-export default function useFormData({ formId, location, presets }) {
-  const [formData, setFormData] = React.useState({ id: formId ?? '', fields: [] });
+export default function useFormData({ formId, location, presets }: { formId?: string, location: string, presets?: string }) {
+  const [formData, setFormData] = React.useState({});
   const [isLoading, setLoading] = React.useState(1);
 
   // todo: when a user updates the form state, save the fields to localStorage
   // when the visitor returns, it should check for the saved field data as "presets"  
   React.useEffect(() => {
-    if (formId) {
-      // check for localStorage: this only works if the form ID is included on the resource URL
-      const formData = localStorage?.getItem(formId);
-      // if we have data in localStorage, return it (done!)
-      if (formData) {
-        setFormData(JSON.parse(formData));
-        return;
-      }
-    }
-
     // Callback function to execute when mutations are observed
     async function getData() {
       try {
@@ -46,8 +36,8 @@ export default function useFormData({ formId, location, presets }) {
       }
     }
 
-    getData();
-  }, [formId, location, presets]);
+    if (!formData?.id) getData();
+  }, []);
 
-  return { formData, isLoading };
+  return { formId, formData, isLoading };
 }

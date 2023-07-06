@@ -1,5 +1,4 @@
 import * as React from 'react';
-import clsx from 'clsx';
 
 type FieldProps = {
   name: string;
@@ -11,10 +10,10 @@ type FieldProps = {
 
 const Field = ({ name, help, className, controlClassName, children }: FieldProps) => (
   <div 
-    className={clsx('field', className)}
+    className={['field', className].join(' ')}
     key={name}
   >
-    <div className={clsx('control', controlClassName)}>
+    <div className={['control', controlClassName].join(' ')}>
       {children}
     </div>
     {help && <p className="help">

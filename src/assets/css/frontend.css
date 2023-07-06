@@ -3392,8 +3392,9 @@ fieldset[disabled] .select select:hover {
 .help.kw-fieldgroup-button-remove {
   color: #ff3852;
 }
-.field:not(:last-child) {
-  margin-bottom: 0.75rem;
+
+.field.hidden {
+  margin-bottom: inherit;
 }
 .field.has-addons {
   display: flex;
