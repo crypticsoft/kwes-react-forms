@@ -35,15 +35,20 @@ This is a dynamic form library that extends the [kwes.io](https://kwesforms.com/
 - _Supported field types_:
 
   - `text`
+  - `textArea`
   - `select`
   - `checkbox`
   - `checkboxGroup`
+  - `password`
   - `radio`
   - `email`
   - `hidden`
   - `date` _(TBD)_
+  - `datePicker` _(TBD: Starter Plan)_
+  - `cc-number` _(TBD: Starter Plan : Credit card fields)_
+  - `file` _(TBD: Starter Plan)_
 
-- **[ 💡 Tip: ]** _You can pass in another field type, say for a native `<input>` element. The component will fallback to using the standard `<input>` (InputControl)._
+- **[💡 Tip:]** _You can create a custom field type, then just include it with the interface `Field` type(s) ([see `./src/types/Field.ts`](./src/types/Field.ts))
 
 ```HTML
 <div
@@ -119,8 +124,9 @@ With the example below, replace `{column-size}` with the column number you want 
 {
 ```
 
-**[ 💡 Tip: ]** Here's a quick way to run Browsersync locally:
+**[ 💡 Tip: ]** Try and include your form configurations (JSON) files locally and serve them from the same domain. (see `dist/public paths`)
 
-```shell
-npx browser-sync start --server 'src/forms' --files 'form01.json' --cors true
-```
+
+## Form Examples
+
+`./public` ~ Here are some form examples to get you started.

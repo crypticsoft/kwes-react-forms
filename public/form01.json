@@ -1,12 +1,10 @@
 {
-  "id": "SWXrdEPodyOKj9vXYmwU",
+  "id": "L6C4A1tTGJgxfefI6vtX",
   "title": "Welcome!",
   "subTitle": "Please fill out the form below:",
   "disclaimer": "When you agree to these terms, you agree to allow us to contact you via email.",
   "submission": {
-    "button": "Learn More",
-    "title": "Thank You",
-    "subTitle": "We will get back to you shortly."
+    "button": "Submit"
   },
   "fields": [
     {
