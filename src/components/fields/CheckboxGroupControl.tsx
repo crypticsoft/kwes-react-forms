@@ -20,7 +20,7 @@ import Checkbox from './Checkbox';
     setCheckedState(updatedCheckedState);
   };
 
-  return (<Field controlClassName='checkbox-control' help={props.help}>
+  return (<Field label={props.label} help={props.help}>
     <fieldset
       data-kw-group
       className="kw-checkbox-group"

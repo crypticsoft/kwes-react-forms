@@ -3,41 +3,37 @@ import { setDefaultValues } from '../helpers/setDefaultValues';
 
 export default function useFormData({ formId, location, presets }: { formId?: string, location: string, presets?: string }) {
   const [formData, setFormData] = React.useState({});
-  const [isLoading, setLoading] = React.useState(1);
+  const [isLoading, setLoading] = React.useState(true);
 
   // todo: when a user updates the form state, save the fields to localStorage
   // when the visitor returns, it should check for the saved field data as "presets"  
   React.useEffect(() => {
+    console.log('localtion', location);
     // Callback function to execute when mutations are observed
     async function getData() {
       try {
-        const result = await fetch(location).then((response) => response.json());
+        const response = await fetch(location);
+        const result = await response.json();
 
-        // build up a key:value object if we detect any preset values
         if (presets) {
           const presetJSON = JSON.parse(presets);
           const resultValues = setDefaultValues(result, presetJSON);
           setFormData(resultValues);
-        }
-
-        // no presets
-        if (!presets) {
-          // set the form data to state
+        } else {
           setFormData(result);
         }
 
-        // save form data to localStorage
-        // todo: check if localStorage is available and skip the fetch
         localStorage?.setItem(result.id, JSON.stringify(result));
-        setLoading(0);
+        setLoading(false);
+
       } catch (error) {
         console.log(error.message);
-        throw new Error(`Unable to fetch the form resource ${location}`, error.message);
+        throw new Error(`Unable to fetch the form resource ${location}`);
       }
     }
 
-    if (!formData?.id) getData();
-  }, []);
+    if (isLoading) getData();
+  }, [isLoading, location, presets]);
 
   return { formId, formData, isLoading };
 }

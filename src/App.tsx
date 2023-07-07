@@ -31,8 +31,15 @@ const InitForm = ({ idx, resource }) => {
   return null;
 }*/
 
-const App = (props) => {
-  const { formId, formData } = useFormData(props);
+interface AppProps {
+  formId?: string;
+  location: string;
+  presets?: string;
+}
+
+const App: React.FC<AppProps> = ({ formId, location, presets }) => {
+  const { formData } = useFormData({ formId, location, presets });
+
   return <InitForm idx={formId} resource={formData} />;
 };
 

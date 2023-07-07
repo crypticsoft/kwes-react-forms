@@ -34,10 +34,10 @@ const SelectControl = (props) => {
           {!props.defaultOption && <option value=''>Select One</option>}
           {props.defaultOption !== undefined &&
             typeof props.defaultOption === 'object' && (
-              <option value={Object.values(props.defaultOption).pop()}>{Object.keys(props.defaultOption).pop()}</option>
+                <option value={Object.values(props.defaultOption).pop() as string}>{Object.keys(props.defaultOption).pop()}</option>
             )}
           {Object.entries(props.options).map(([key, optionValue]) => (
-            <option key={key} value={optionValue}>
+            <option key={key} value={optionValue as string}>
               {key}
             </option>
           ))}

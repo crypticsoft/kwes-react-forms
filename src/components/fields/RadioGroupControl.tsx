@@ -1,40 +1,67 @@
-import * as React from 'react';
+import React, { FC } from 'react';
+
+interface OptionProps {
+  name: string;
+  // options: Record<string, string>;
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  // defaultOption?: Record<string, string>;
+  value?: string;
+  label: string;
+}
+
 /**
  * RadioGroupControl
  * @param { name, (object) options, rules, help } props
  * @returns
  * todo: disabled, defaultValue
  */
-const Option = (props) =>
-  Object.entries(props.options).map(([k, v]) => (
-    <label key={k}>
+const Option: FC<OptionProps> = ({ name, label, onChange, value }) => (
+  <>
+    <label key={label}>
       <input
-        onChange={props.onChange}
+        onChange={onChange}
         type="radio"
-        name={props.name}
-        value={v}
-        // checked={props.defaultOption === v || props.value === v ? true : false}
+        name={name}
+        value={value}
+        // checked={Object.values(defaultOption ?? {})[0] === value || value === value}
       />{' '}
-      {k}
+      {label}
     </label>
-  ));
+  </>
+);
 
-const RadioGroupControl = (props) => {
+interface RadioGroupControlProps {
+  name: string;
+  label: string;
+  value?: string;
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  options?: object; // { [key: string]: string }
+  defaultOption?: object;
+  rules?: string;
+  help?: string;
+}
+
+const RadioGroupControl = (props: RadioGroupControlProps) => {
   return (
     <div className="field">
       <div className="control radio-control">
         <fieldset
           data-kw-group
-          rules={props.rules} // eslint-disable-line react/no-unknown-property
+          {...(props.rules && { rules: props.rules })}
         >
           <legend>{props.label}</legend>
-          <Option
-            name={props.name}
-            value={props.value}
-            onChange={props.onChange}
-            options={props.options}
-            defaultOption={props.defaultOption}
-          />
+          {Object.entries(props.options).map(([k, v]) => (
+            <Option
+              key={k}
+              label={k}
+              name={props.name} /* same name for all radios in a group */
+              value={v}
+              options={{ [k]: v }}
+              onChange={props.onChange}
+              // {...(props.defaultOption ? { defaultOption={props.defaultOption} } : {})}
+            />
+          ))}
+
         </fieldset>
       </div>
       {props.help && <p className="help">{props.help}</p>}

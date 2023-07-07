@@ -3,7 +3,8 @@ import Field from '../Field';
 
 interface CheckboxProps extends React.InputHTMLAttributes<HTMLInputElement> {
   rules?: string;
-};
+  value?: string;
+}
 
 interface CheckboxControlProps {
   name: string;
@@ -11,8 +12,8 @@ interface CheckboxControlProps {
   rules?: string;
   help?: string;
   className?: string;
-  children: React.ReactNode;
-};
+  children?: React.ReactNode;
+}
 
 /**
  * CheckboxControl
@@ -34,31 +35,18 @@ const FieldControl: FC<CheckboxControlProps> = ({ className, help, label, ...pro
  * @param rules (string)
  * @returns 
  */
-const Checkbox: FC<CheckboxProps> = ({ value, rules, name, ...props }) => {
-  const [checked, setChecked] = useState(false);
-  return (
-    <input
-      name={name}
-      type="checkbox"
-      {...props}
-      rules={rules}
-      onChange={(event) => setChecked(event.currentTarget.checked)}
-      checked={checked}
-      value={value}
-    />);
-}
+const Checkbox: FC<CheckboxProps> = ({ value, rules, name, checked, ...props }) => (
+  <input
+    name={name}
+    type="checkbox"
+    checked={checked}
+    value={value}
+    {...props}
+  />);
 
-interface CheckboxControlProps {
-  name: string;
-  label: string;
-  rules?: string;
-  help?: string;
-  className?: string;
-}
-
-const CheckboxControl: FC<CheckboxControlProps> = ({ name, label, rules, help, className }) => 
+const CheckboxControl: FC<CheckboxControlProps> = ({ name, label, rules, help, className, ...props }) => 
   <FieldControl name={name} label={label} rules={rules} help={help} className={className}>
-      <Checkbox name={name} rules={rules} />
+      <Checkbox name={name} {...props} />
   </FieldControl>;
 
 export default CheckboxControl;
