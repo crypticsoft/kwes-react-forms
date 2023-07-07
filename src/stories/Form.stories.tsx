@@ -1,10 +1,10 @@
 import React from 'react';
 import { FormComponent } from './Form';
 import { CheckboxComponent } from './CheckboxControl';
-import CheckboxGroupControl from '../components/fields/CheckboxGroupControl.jsx';
-import InputControl from '../components/fields/InputControl.jsx';
-import RadioGroupControl from '../components/fields/RadioGroupControl';
-import SelectControl from '../components/fields/SelectControl';
+import CheckboxGroupControl from '@/components/fields/CheckboxGroupControl.jsx';
+import InputControl from '@/components/fields/InputControl.jsx';
+import RadioGroupControl from '@/components/fields/RadioGroupControl';
+import SelectControl from '@/components/fields/SelectControl';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {

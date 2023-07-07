@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import CheckboxControl from '../components/fields/Checkbox';
+import CheckboxControl from '@/components/fields/Checkbox';
 
 // base style
 import '../assets/css/index.css';
@@ -9,7 +9,7 @@ import '../assets/css/index.css';
  * CheckboxControl component
  */
 export const CheckboxComponent = ({ ...props }) => (
-  <CheckboxControl {...props} />
+  <CheckboxControl name={props.name} label={props.label} {...props} />
 );
 
 CheckboxComponent.propTypes = {
