@@ -28,7 +28,10 @@
     "rootDir": "./src",
     "typeRoots": ["./node_modules/@types", "./src/types"],
     "experimentalDecorators": true,
-    "emitDecoratorMetadata": true
+    "emitDecoratorMetadata": true,
+    "paths": {
+      "@/components/*": ["src/components/*"]
+    }
   },
 
   "include": ["src/**/*"],

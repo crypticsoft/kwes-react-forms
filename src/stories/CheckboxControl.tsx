@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import CheckboxControl from '../components/CheckboxControl';
+import CheckboxControl from '@/components/fields/Checkbox';
 
 // base style
 import '../assets/css/index.css';
@@ -8,11 +8,11 @@ import '../assets/css/index.css';
 /**
  * CheckboxControl component
  */
-export const CheckboxControlComponent = ({ ...props }) => (
-  <CheckboxControl {...props} />
+export const CheckboxComponent = ({ ...props }) => (
+  <CheckboxControl name={props.name} label={props.label} {...props} />
 );
 
-CheckboxControlComponent.propTypes = {
+CheckboxComponent.propTypes = {
   /**
    * Field and form data
    */
@@ -22,7 +22,7 @@ CheckboxControlComponent.propTypes = {
   type: PropTypes.string
 };
 
-CheckboxControlComponent.defaultProps = {
+CheckboxComponent.defaultProps = {
   label: '',
   name: '',
   rules: 'accepted',

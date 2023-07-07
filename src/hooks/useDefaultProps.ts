@@ -9,18 +9,15 @@ export default function useDefaultProps(props, error) {
   const [defaults, setDefaults] = React.useState({});
 
   React.useEffect(() => {
-    const args = {};
+    const args = { id: '', rules: '', className: '', 'data-testid': '', placeholder: ''};
     // "text" input
     if (props.type === 'text' || props.type === 'hidden' || props.type === 'email') {
       Object.assign(args, {
         id: `${props.name}-input`,
         className: 'input',
-        'data-testid': `${props.name}-input`
+        'data-testid': `${props.name}-input`,
+        placeholder: props.placeholder ? props.placeholder : null,
       });
-
-      if (props.placeholder) {
-        args.placeholder = props.placeholder;
-      }
     }
 
     // select
@@ -34,7 +31,7 @@ export default function useDefaultProps(props, error) {
     }
 
     // error state
-    if (error) {
+    if (error && props.type !== 'hidden') {
       Object.assign(args, {
         'aria-describedby': `field-error-${props.name}`,
         'aria-invalid': error ? error : ''

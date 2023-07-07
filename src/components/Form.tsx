@@ -1,11 +1,12 @@
-import React, { useRef, useEffect } from 'react';
-import kwesforms from 'kwesforms';
-import InputControl from './InputControl';
-import CheckboxControl from './CheckboxControl';
-import SelectControl from './SelectControl';
-import RadioGroupControl from './RadioGroupControl';
-import CheckboxGroupControl from './CheckboxGroupControl';
-import TextAreaControl from './TextAreaControl';
+import React, { useRef } from 'react';
+import {
+  InputControl,
+  CheckboxControl,
+  SelectControl,
+  RadioGroupControl,
+  CheckboxGroupControl,
+  TextareaControl,
+} from './fields';
 
 const isDev = process.env.NODE_ENV !== 'production';
 
@@ -17,7 +18,7 @@ const isDev = process.env.NODE_ENV !== 'production';
 const controlFactory: ControlFactory = {
   select: (props) => <SelectControl {...props} />,
   text: (props) => <InputControl {...props} />,
-  textarea: (props) => <TextAreaControl {...props} />,
+  textarea: (props) => <TextareaControl {...props} />,
   password: (props) => <InputControl {...props} />,
   email: (props) => <InputControl {...props} />,
   hidden: (props) => <InputControl {...props} />,
@@ -66,10 +67,14 @@ const generateFields = (fields: (Field | Group)[]) =>
     // has a single field
     return isHidden === false && hasGroup === false ? (
       <div className="columns" key={`group-${idx}`}>
-        <div className="is-12 column">{createControl(field as Field)}</div>
+        <div className="is-12 column">
+          {createControl(field as Field)}
+        </div>
       </div>
     ) : (
-      createControl(field as Field)
+      <div className="hidden" key={`field-${idx}`}>
+        {createControl(field as Field)}
+      </div>
     );
   });
 
@@ -87,18 +92,10 @@ const Form: React.FC<FormProps> = ({ id, data }) => {
   const successMessage = data.submission?.success || null;
   const errorMessage = data.submission?.error || null;
 
-  useEffect(() => {
-    if (innerRef.current) {
-      try {
-        kwesforms.init();
-      } catch(error) {
-        console.error(error);
-      }
-    }
-  }, [innerRef]);
   /**
    * KWES Form
    * todo: consider adding error messages around required fields. ie form "id"
+   * (no-reload="true") "Starter Plan"
    */
   return (
     <form
@@ -111,7 +108,6 @@ const Form: React.FC<FormProps> = ({ id, data }) => {
       {...(!formAction && { style: { display: 'none' } })}
       {...(successMessage && { "success-message": successMessage })}
       {...(errorMessage && { "error-message": errorMessage })}
-      // no-reload="true"
     >
       {data && (
         <fieldset>

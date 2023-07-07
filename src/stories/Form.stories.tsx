@@ -1,11 +1,10 @@
-// import React from 'react';
-
+import React from 'react';
 import { FormComponent } from './Form';
-import { CheckboxControlComponent } from './CheckboxControl';
-import CheckboxGroupControl from '../components/CheckboxGroupControl.jsx';
-import InputControl from '../components/InputControl.jsx';
-import RadioGroupControl from '../components/RadioGroupControl';
-import SelectControl from '../components/SelectControl';
+import { CheckboxComponent } from './CheckboxControl';
+import CheckboxGroupControl from '@/components/fields/CheckboxGroupControl.jsx';
+import InputControl from '@/components/fields/InputControl.jsx';
+import RadioGroupControl from '@/components/fields/RadioGroupControl';
+import SelectControl from '@/components/fields/SelectControl';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -89,7 +88,7 @@ FormExample.args = {
 };
 //
 
-const CheckboxTemplate = (args) => <CheckboxControlComponent {...args} />;
+const CheckboxTemplate = (args) => <CheckboxComponent {...args} />;
 
 export const Checkbox = CheckboxTemplate.bind({});
 Checkbox.title = 'Example/Form/Fields/Checkbox';
