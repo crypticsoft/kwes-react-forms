@@ -8,7 +8,6 @@ export default function useFormData({ formId, location, presets }: { formId?: st
   // todo: when a user updates the form state, save the fields to localStorage
   // when the visitor returns, it should check for the saved field data as "presets"  
   React.useEffect(() => {
-    console.log('localtion', location);
     // Callback function to execute when mutations are observed
     async function getData() {
       try {
@@ -27,7 +26,6 @@ export default function useFormData({ formId, location, presets }: { formId?: st
         setLoading(false);
 
       } catch (error) {
-        console.log(error.message);
         throw new Error(`Unable to fetch the form resource ${location}`);
       }
     }
