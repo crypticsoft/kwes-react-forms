@@ -99,6 +99,10 @@ h2 {
   width: 100%;
 }
 
+.kw-checkbox-group .field {
+  margin-bottom: 0;
+}
+
 .kw-alert {
   width: 100%;
   padding: 15px 18px;

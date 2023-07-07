@@ -1,24 +1,18 @@
-import * as React from 'react';
+import React, { FC } from 'react';
 
-type FieldProps = {
-  name: string;
-  help: string;
-  className: string;
-  controlClassName?: string;
+interface FieldProps {
+  label: string;
+  help?: string;
   children: React.ReactNode;
 }
 
-const Field = ({ name, help, className, controlClassName, children }: FieldProps) => (
-  <div 
-    className={['field', className].join(' ')}
-    key={name}
-  >
-    <div className={['control', controlClassName].join(' ')}>
+
+const Field: FC<FieldProps> = ({ help, children }) => (
+  <div className='field'>
+    <div className='control'>
       {children}
     </div>
-    {help && <p className="help">
-      {help}
-    </p>}
+    {help && <p className="help">{help}</p>}
   </div>
 );
 

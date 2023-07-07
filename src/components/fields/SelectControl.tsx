@@ -1,5 +1,5 @@
 import * as React from 'react';
-import useErrorObserver from '../hooks/useErrorObserver';
+import useErrorObserver from '../../hooks/useErrorObserver';
 /**
  * SelectControl
  * @param { name, label, (object) defaultOption, (object) options, rules, help } props

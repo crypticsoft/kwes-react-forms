@@ -1,5 +1,6 @@
 import * as React from 'react';
-import Field from './Field';
+import Field from '../Field';
+import Checkbox from './Checkbox';
 
 /**
  * CheckboxGroupControl
@@ -27,15 +28,14 @@ import Field from './Field';
     >
       <legend>{props.label}</legend>
 
-      {props.options && Object.entries(props.options).map(( [k, v], index) => <label key={index}>
-        <input
-          type="checkbox"
-          checked={checkedState[index]}
-          onChange={(e) => handleOnChange(e, index)}
+      {props.options && Object.entries(props.options).map(([k, v], index) => 
+        <Checkbox
           name={props.name}
           value={v}
-        /> {k}
-      </label>)}
+          label={k}
+          key={`${props.name}-${index}`}
+        />
+      )}
     </fieldset>
   </Field>);
 }

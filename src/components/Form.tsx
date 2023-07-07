@@ -1,11 +1,11 @@
 import React, { useRef, useEffect } from 'react';
 import kwesforms from 'kwesforms';
-import InputControl from './InputControl';
-import CheckboxControl from './CheckboxControl';
-import SelectControl from './SelectControl';
-import RadioGroupControl from './RadioGroupControl';
-import CheckboxGroupControl from './CheckboxGroupControl';
-import TextAreaControl from './TextAreaControl';
+import InputControl from './fields/InputControl';
+import CheckboxControl from './fields/Checkbox';
+import SelectControl from './fields/SelectControl';
+import RadioGroupControl from './fields/RadioGroupControl';
+import CheckboxGroupControl from './fields/CheckboxGroupControl';
+import TextAreaControl from './fields/TextAreaControl';
 
 const isDev = process.env.NODE_ENV !== 'production';
 
@@ -66,10 +66,14 @@ const generateFields = (fields: (Field | Group)[]) =>
     // has a single field
     return isHidden === false && hasGroup === false ? (
       <div className="columns" key={`group-${idx}`}>
-        <div className="is-12 column">{createControl(field as Field)}</div>
+        <div className="is-12 column">
+          {createControl(field as Field)}
+        </div>
       </div>
     ) : (
-      createControl(field as Field)
+      <div className="hidden" key={`field-${idx}`}>
+        {createControl(field as Field)}
+      </div>
     );
   });
 
