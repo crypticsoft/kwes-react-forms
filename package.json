@@ -6,14 +6,6 @@
   "files": [
     "dist"
   ],
-  "main": "./dist/kwes-rest-form.umd.cjs",
-  "module": "./dist/kwes-rest-form.js",
-  "exports": {
-    ".": {
-      "import": "./dist/kwes-rest-form.js",
-      "require": "./dist/kwes-rest-form.umd.cjs"
-    }
-  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",

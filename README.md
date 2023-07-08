@@ -2,14 +2,20 @@
 
 [![Generic badge](https://img.shields.io/badge/development-v0.2.0-<COLOR>.svg)](https://shields.io/)
 
-This is a dynamic form library that extends the [kwes.io](https://kwesforms.com/docs/v2/form-components) form components. Allowing you to use a JSON configuration with support for field groups and columns.
+### What is KWES React Forms?
+This is a dynamic form library that extends the [kwesforms.com](https://kwesforms.com/docs/v2/form-components) form components. Allowing you to use a simple data object or JSON configuration to render field groups and columns.
+
+### Why use this library?
+You can go ahead and generate static forms manually but who wants to do that? You can also spend time looking at the dozen of JS libraries that handle all of the validation and rendering aspects, but have fun with that too. Or you can just let Kwesforms handle the typical form validation and respones.
+
+[Kwesforms](https://kwesforms.com/pricing) does have some additional customization features with their paid plan(s) for showing / hiding fields. This library really is focused on common use-cases and might be best served for those or as a starting point to generate forms you can extend further, if you needed to with their paid plans.
 
 ![Screenshot](./screenshot.png?raw=true 'Form Demo')
 
 @TODO items:
 [] Minify steps for css assets to reduce bundle size
-[] Update legacy jest tests to use vitest
-[] MSW mocks with `setupTests`
+[] MSW mocks with `setupTests` (restore when ready)
+[] Instructions for how to embed form(s) using React
 
 ## Features
 
@@ -18,15 +24,15 @@ This is a dynamic form library that extends the [kwes.io](https://kwesforms.com/
 [x] Hidden fields\
 [x] Field Columns / Groups\
 [x] Preset values\
-[] Submission message\
-[] Multi-Form support\
+[x] Multiple form support\
+[] Submission message (Starter Plan)\ 
 [] [Field Type: Date picker](https://kwesforms.com/docs/v2/datepicker)
-[x] Multiple form support
+
 ## Form Setup
 
-- In development, use `test` mode
-- Pull in the `id` from the form configuration to set the form action
-- NoValidate - kwes has built-in field validation, this disables native
+- In development, use `test` mode and set your local env file.
+- The form `id` from the form configuration is what will set the form action.
+- `No-Validate` - kwes has built-in field validation, this disables native
 
 ## Dynamic Fields
 

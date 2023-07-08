@@ -7,7 +7,6 @@ const allForms = document.querySelectorAll('[data-form-id]');
 if (allForms.length > 0) {
   // mount each form instance on the page
   allForms.forEach((form) => {
-    console.log('mounting it like a bull', form);
     ReactDOM.createRoot(form).render(
       <React.StrictMode>
         <App
