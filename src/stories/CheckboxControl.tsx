@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import CheckboxControl from '@/components/fields/Checkbox';
 
 // base style
-import '../assets/css/index.css';
+// import '../assets/css/index.css';
 
 /**
  * CheckboxControl component

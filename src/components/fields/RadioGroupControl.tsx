@@ -42,6 +42,7 @@ interface RadioGroupControlProps {
 }
 
 const RadioGroupControl = (props: RadioGroupControlProps) => {
+  const labelClassName = props?.rules?.includes('required') ? 'label required' : 'label';
   return (
     <div className="field">
       <div className="control radio-control">
@@ -49,7 +50,7 @@ const RadioGroupControl = (props: RadioGroupControlProps) => {
           data-kw-group
           {...(props.rules && { rules: props.rules })}
         >
-          <legend>{props.label}</legend>
+          <legend className={labelClassName}>{props.label}</legend>
           {Object.entries(props.options).map(([k, v]) => (
             <Option
               key={k}

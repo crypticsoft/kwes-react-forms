@@ -1,10 +1,12 @@
 import React from 'react';
+
 import { FormComponent } from './Form';
 import { CheckboxComponent } from './CheckboxControl';
 import CheckboxGroupControl from '@/components/fields/CheckboxGroupControl.jsx';
 import InputControl from '@/components/fields/InputControl.jsx';
 import RadioGroupControl from '@/components/fields/RadioGroupControl';
 import SelectControl from '@/components/fields/SelectControl';
+import { DatePickerControl, DateControl, DateTimePickerControl, FileControl } from '@/components/fields';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -18,6 +20,8 @@ const Template = (args) => <FormComponent {...args} />;
 export const FormExample = Template.bind({});
 FormExample.args = {
   id: 'SWXrdEPodyOKj9vXYmwU',
+  action: '',
+  // handler: (e) => { e.preventDefault(); console.log('Form submitted!') },
   data: {
     id: 'SWXrdEPodyOKj9vXYmwU',
     title: 'Welcome!',
@@ -158,5 +162,55 @@ Select.args = {
   label: 'Pick a favorite fruit:',
   help: '* Required field',
   options: { Apple: 'Apple', Banana: 'Banana', Grape: 'Grape' }
+};
+//
+
+const DateTimePickerTemplate = (args) => <DateTimePickerControl {...args} />;
+
+export const DateTimePicker = DateTimePickerTemplate.bind({});
+
+DateTimePicker.args = {
+  name: 'schedule',
+  rules: 'required',
+  label: 'Schedule a time:',
+  help: '* Required field',
+  min: '2023-07-12T00:00',
+  max: '2023-12-31T00:00',
+};
+//
+
+const DatePickerTemplate = (args) => <DatePickerControl {...args} />;
+
+export const DatePicker = DatePickerTemplate.bind({});
+
+DatePicker.args = {
+  name: 'schedule',
+  rules: 'required',
+  label: 'Book a date (renders component when kwesforms is initialized)',
+  help: '* Required field',
+};
+//
+
+const DateControlTemplate = (args) => <DateControl {...args} />;
+
+export const DateControlComponent = DateControlTemplate.bind({});
+
+DateControlComponent.args = {
+  name: 'schedule_date',
+  rules: 'required',
+  label: 'Book a date:',
+  help: '* Required field',
+};
+//
+
+const FileTemplate = (args) => <FileControl {...args} />;
+
+export const FileControlComponent = FileTemplate.bind({});
+
+FileControlComponent.args = {
+  name: 'schedule_date',
+  rules: 'required',
+  label: 'Upload a file',
+  help: '* Required field',
 };
 //

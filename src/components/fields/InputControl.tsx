@@ -35,12 +35,13 @@ const InputControl = (props) => {
     'aria-describedby': `field-error-${props.name}`,
     'aria-invalid': error ? error : ''
   };
+  const labelClassName = props?.rules?.includes('required') ? 'label required' : 'label';
 
   return (
     <Field label={props.label} help={props.help}>
       <Fragment>
         {props.type !== 'hidden' && (
-          <label className="label" htmlFor={`${props.name}-input`}>
+          <label className={labelClassName} htmlFor={`${props.name}-input`}>
             {props.label}
           </label>
         )}
@@ -51,6 +52,7 @@ const InputControl = (props) => {
           rules={props.rules}
           {...((props.type !== 'hidden' && error) && {...ariaProps})}
           {...props}
+          required={props?.rules?.includes('required') ? true : false}
         />
       </Fragment>
     </Field>

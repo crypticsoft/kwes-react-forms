@@ -2490,6 +2490,7 @@ fieldset[disabled] .textarea:-ms-input-placeholder {
   max-width: 100%;
   width: 100%;
 }
+
 [readonly].input,
 [readonly].textarea {
   box-shadow: none;
@@ -5797,21 +5798,12 @@ a.has-text-danger-dark:hover {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.input {
-  padding-left: 15px;
-  padding-right: 15px;
-  padding-top: calc(0.5em - 3px);
-  font-size: 16px;
-  font-weight: 400;
-  height: 45px;
-}
+
 .select select,
 .textarea {
   padding-bottom: calc(0.5em + 1px);
 }
-.input {
-  padding-bottom: calc(0.5em - 1px);
-}
+
 .select select {
   padding-left: 15px;
   font-size: 16px;

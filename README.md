@@ -25,6 +25,7 @@ You can go ahead and generate static forms manually but who wants to do that? Yo
 [x] Field Columns / Groups\
 [x] Preset values\
 [x] Multiple form support\
+[] [Multi-step forms (Starter Plan)](https://kwesforms.com/docs/v2/multistep-forms)\
 [] Submission message (Starter Plan)\ 
 [] [Field Type: Date picker](https://kwesforms.com/docs/v2/datepicker)
 

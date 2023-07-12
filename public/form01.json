@@ -2,7 +2,7 @@
   "id": "L6C4A1tTGJgxfefI6vtX",
   "title": "Welcome!",
   "subTitle": "Please fill out the form below:",
-  "disclaimer": "When you agree to these terms, you agree to allow us to contact you via email.",
+  "disclaimer": "When you agree to <a href=\"/terms\">these terms</a>, you agree to allow us to contact you via email.",
   "submission": {
     "button": "Submit"
   },

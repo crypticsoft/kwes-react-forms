@@ -8,6 +8,10 @@ import {
   RadioGroupControl,
   CheckboxGroupControl,
   TextareaControl,
+  FileControl,
+  DateControl,
+  DatePickerControl,
+  DateTimePickerControl,
 } from './fields';
 
 const isDev = process.env.NODE_ENV !== 'production';
@@ -23,10 +27,14 @@ const controlFactory: ControlFactory = {
   textarea: (props) => <TextareaControl {...props} />,
   password: (props) => <InputControl {...props} />,
   email: (props) => <InputControl {...props} />,
+  file: (props) => <FileControl {...props} />,
+  date: (props) => <DateControl {...props} />,
+  datepicker: (props) => <DatePickerControl {...props} />,
   hidden: (props) => <InputControl {...props} />,
   checkbox: (props) => <CheckboxControl {...props} />,
   checkboxGroup: (props) => <CheckboxGroupControl {...props} />,
   radio: (props) => <RadioGroupControl {...props} />,
+  'datetime-local': (props) => <DateTimePickerControl {...props} />,
 };
 
 /**
@@ -51,7 +59,7 @@ const generateFields = (fields: (Field | Group)[]) =>
         fieldName = f.field.name;
         const columnClasses = f?.size
           ? ['column', `is-${f.size}`]
-          : ['column', `is-6`]; // 50% by default, unless specified
+          : ['column'];
         fields.push(
             <div key={`group-${index}`} className={columnClasses.join(' ')}>
               {createControl(f.field)}
@@ -69,12 +77,12 @@ const generateFields = (fields: (Field | Group)[]) =>
     // has a single field
     return isHidden === false && hasGroup === false ? (
       <div className="columns" key={`group-${idx}`}>
-        <div className="is-12 column">
+        <div className="column">
           {createControl(field as Field)}
         </div>
       </div>
     ) : (
-      <div className="hidden" key={`field-${idx}`}>
+      <div className='hidden' key={`field-${idx}`}>
         {createControl(field as Field)}
       </div>
     );
@@ -86,9 +94,9 @@ const generateFields = (fields: (Field | Group)[]) =>
  * @param data { FormData }
  * @returns JSX.Element
  */
-const Form: React.FC<FormProps> = ({ id, data }) => {
+const Form: React.FC<FormProps> = ({ id, data, action, handler }) => {
   const innerRef = useRef<HTMLFormElement>(null);
-  const formAction = `https://kwes.io/api/foreign/forms/${id}`;
+  const formAction = action ?? `https://kwes.io/api/foreign/forms/${id}`; // allows for custom form action but default to kwesforms
   const disclaimer = data.disclaimer;
   const submitButton = data.submission?.button || 'Submit';
   const successMessage = data.submission?.success || null;
@@ -102,17 +110,17 @@ const Form: React.FC<FormProps> = ({ id, data }) => {
   return (
     <form
       className="kwes-form"
-      noValidate
+      {...(!action ? { noValidate: true } : null)}
       acceptCharset="utf-8"
       ref={innerRef}
       action={formAction}
+      {...(handler && { onSubmit: handler })}
       {...(isDev && { mode: 'test' })}
-      {...(!formAction && { style: { display: 'none' } })}
       {...(successMessage && { "success-message": successMessage })}
       {...(errorMessage && { "error-message": errorMessage })}
     >
       {data && (
-        <fieldset>
+        <fieldset className="container">
           {/* Form Title & Sub-Title */}
           {data.title && (
             <legend>
@@ -124,22 +132,27 @@ const Form: React.FC<FormProps> = ({ id, data }) => {
           {/* Generate Field(s) */}
           {data.fields && generateFields(data.fields)}
 
+          <div className="field is-grouped is-grouped-centered">
+            <p className="control">
+              <button
+                // onClick={handleSubmit}
+                data-testid="submit-button"
+                className="button is-info is-primary is-fullwidth submit-button is-medium"
+                type="submit"
+              >
+                {submitButton}
+              </button>
+            </p>
+          </div>
+
           {/* Disclaimer */}
           {disclaimer && (
-            <p className="disclaimer">
-              <small>{disclaimer}</small>
-            </p>
+            <div className="columns">
+              <div className="column">
+                <p className="disclaimer" dangerouslySetInnerHTML={{__html: disclaimer}} />
+              </div>
+            </div>                
           )}
-          <p className="submit">
-            <button
-              // onClick={handleSubmit}
-              data-testid="submit-button"
-              className="button is-normal is-primary is-fullwidth"
-              type="submit"
-            >
-              {submitButton}
-            </button>
-          </p>
         </fieldset>
       )}
     </form>

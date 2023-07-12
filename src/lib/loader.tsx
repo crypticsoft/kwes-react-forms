@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom/client'
 import App from '../App'
 import kwesforms from 'kwesforms';
 
+(() => {
+
 const isBrowser = () => typeof window !== 'undefined'; //The approach recommended by Next.js
 
 // check for forms on the page and mount them using a promise
@@ -36,12 +38,18 @@ if (isBrowser()) {
     // after mounting all forms, initialize kwesforms
     mountForms().then(() => {
       console.log('✨ all forms have been mounted 🧙🏼 ✨');
-
-      // slight delay to allow for forms to be mounted and rendered before initializing kwesforms
-      setTimeout(() => {
-        kwesforms.init();
-        console.log('🧙🏼 kwesforms initialized 🧙🏼');
-      }, 500);
+    }).finally(() => {
+        /** 
+         * Initialize Kwesforms:
+            - With a slight delay to allow for forms to be mounted and rendered before initializing kwesforms
+            - Alternatively, this can be deferred and loaded using a script tag in the <head> of the page. (see CDN vs NPM loading)
+        **/
+        setTimeout(() => {
+          kwesforms.init();
+          console.log('🧙🏼 kwesforms initialized 🧙🏼');
+        }, 1000);
     });
   });
 }
+
+})()

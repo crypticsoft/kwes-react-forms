@@ -20,10 +20,13 @@ const TextAreaControl: FC<TextAreaControlProps> = ({ rules, label, help, classNa
     'aria-describedby': `field-error-${props.name}`,
   };
 
+  const labelClassName = rules?.includes('required') ? 'label required' : 'label';
+  const defaultClassName = 'textarea';
+
   return (
     <Field help={help} label={label}>
       {props.type !== 'hidden' && (
-        <label className="label" htmlFor={`${props.name}-input`}>
+        <label className={labelClassName} htmlFor={`${props.name}-input`}>
           {label}
         </label>
       )}
@@ -32,12 +35,11 @@ const TextAreaControl: FC<TextAreaControlProps> = ({ rules, label, help, classNa
         id={`${props.name}-textarea`}
         data-testid={`${props.name}-textarea`}
         name={props.name}
-        className={[props.type, className].join(' ')}
+        className={[defaultClassName, props.type, className].join(' ')}
         onChange={(event) => setValue(event.currentTarget.value)}
         {...(rules ? { rules } : {})}
         {...(error ? {...ariaProps} : {})}
         placeholder={props.placeholder}
-        rows={props?.rows}
         value={value || ''}
       />
     </Field>

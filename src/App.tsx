@@ -1,18 +1,19 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, useEffect } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 import useFormData from './hooks/useFormData';
 import ErrorFallback from '@/components/ErrorFallback.jsx';
 import Loader from './Loader';
 
 // base style
-import './assets/css/frontend.min.css';
+import './assets/css/index.scss';
+// import './assets/css/frontend.scss';
 
-const InitForm = ({ idx, resource }) => {
+const InitForm = ({ idx, resource }) => {    
   const Form = React.lazy(() => import('@/components/Form'));
   return (
       <ErrorBoundary FallbackComponent={ErrorFallback}>
         <Suspense fallback={<Loader />}>
-          <Form id={idx} data={resource} />
+          <Form key={resource.id} id={idx} data={resource} />
         </Suspense>
       </ErrorBoundary>
     );

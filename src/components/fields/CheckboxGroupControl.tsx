@@ -20,13 +20,15 @@ import Checkbox from './Checkbox';
     setCheckedState(updatedCheckedState);
   };
 
+  const labelClassName = props?.rules?.includes('required') ? 'label required' : 'label';
+
   return (<Field label={props.label} help={props.help}>
     <fieldset
       data-kw-group
       className="kw-checkbox-group"
       rules={props.rules} // eslint-disable-line react/no-unknown-property
     >
-      <legend>{props.label}</legend>
+      <legend className={labelClassName}>{props.label}</legend>
 
       {props.options && Object.entries(props.options).map(([k, v], index) => 
         <Checkbox

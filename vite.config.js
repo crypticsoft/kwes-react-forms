@@ -1,14 +1,19 @@
 /// <reference types="vitest" />
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import { resolve } from 'path'
+import * as path from 'path'
+import pkg from './package.json'
 
-// const projectRootDir = resolve(__dirname);
+const isProduction = process.env.NODE_ENV === 'production';
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  define: {
+    '__APP_VERSION__': JSON.stringify(pkg.version),
+  },
   plugins: [
     react(),
+    isProduction && (await import('@rollup/plugin-terser')).default(),
   ],
 
   // vitest
@@ -24,31 +29,43 @@ export default defineConfig({
       ],
     },
   },*/
+
   // build
   build: {
     rollupOptions: {
       // make sure to externalize deps that shouldn't be bundled
       // into your library
-      // external: ['react'],
-
+      external: [
+        'react',
+        "react/jsx-runtime",
+        'react-dom',
+        'kwesforms',
+      ],
       // multiple entrypoints are supported (https://rollupjs.org/configuration-options/#input)
       input : {
-        loader: resolve(__dirname, 'src/lib/loader.tsx'),
+        main: path.resolve(__dirname, 'src/index.ts'),
+        loader: path.resolve(__dirname, 'src/lib/loader.tsx'),
       },
+
       output: {
         // Provide global variables to use in the UMD build
         // for externalized deps
         globals: {
-          react: 'React',
+          'react': 'react',
+          'react-dom': 'ReactDOM',
+          'react/jsx-runtime': 'react/jsx-runtime',
+          'kwesforms': 'kwesforms',
         },
-        format: 'es',
+        format: 'esm',
         dir: 'dist',
+        exports: 'named',
+        // file: 'index.js'
       },
     },
   },
   resolve: {
     alias: [
-      { find: "@", replacement: resolve(__dirname, "src") },
+      { find: "@", replacement: path.resolve(__dirname, "src") },
     ],
   },
 })

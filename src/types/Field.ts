@@ -1,5 +1,5 @@
   interface Field {
-    type: 'select' | 'text' | 'hidden' | 'checkbox' | 'checkboxGroup' | 'radio' | 'email' | 'textarea' | 'password';
+    type: 'select' | 'text' | 'hidden' | 'checkbox' | 'checkboxGroup' | 'radio' | 'email' | 'textarea' | 'password' | 'date' | 'datepicker' | 'file' | 'datetime-local';
     name: string;
     label: string;
     placeholder?: string;
@@ -11,6 +11,15 @@
     controlClassName?: string;
     children?: React.ReactNode;
     rows?: number;
+  }
+
+  interface FieldControlProps {
+    name: string;
+    label: string;
+    rules?: string;
+    help?: string;
+    className?: string;
+    children?: React.ReactNode;
   }
 
   interface Group {
@@ -29,6 +38,8 @@
   interface FormProps {
     id: string;
     data: FormData;
+    action?: string;
+    handler?: () => void;
   }
 
   /**
