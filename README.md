@@ -6,7 +6,10 @@
 This is a dynamic form library that extends the [kwesforms.com](https://kwesforms.com/docs/v2/form-components) form components. Allowing you to use a simple data object or JSON configuration to render field groups and columns.
 
 ### Why use this library?
-You can go ahead and generate static forms manually but who wants to do that? You can also spend time looking at the dozen of JS libraries that handle all of the validation and rendering aspects, but have fun with that too. Or you can just let Kwesforms handle the typical form validation and respones.
+_You can go ahead and generate static forms manually but who wants to do that?_
+_You can also spend time looking at the dozen of JS libraries that handle all of the validation and rendering aspects, but have fun with that too._
+
+Or you can just let `Kwesforms`` handle the typical form validation and respones. That's what inspired this library is to create forms without the validation hassle. The library has since been extended to allow for a custom form action and submit handler (function) so it can be used more generically and fallback to built-in browser validation.
 
 [Kwesforms](https://kwesforms.com/pricing) does have some additional customization features with their paid plan(s) for showing / hiding fields. This library really is focused on common use-cases and might be best served for those or as a starting point to generate forms you can extend further, if you needed to with their paid plans.
 
@@ -25,8 +28,10 @@ You can go ahead and generate static forms manually but who wants to do that? Yo
 [x] Field Columns / Groups\
 [x] Preset values\
 [x] Multiple form support\
-[] [Multi-step forms (Starter Plan)](https://kwesforms.com/docs/v2/multistep-forms)\
-[] Submission message (Starter Plan)\ 
+
+### "Starter Plan" features (TBD)
+[] [Multi-step forms](https://kwesforms.com/docs/v2/multistep-forms)\
+[] Submission message\
 [] [Field Type: Date picker](https://kwesforms.com/docs/v2/datepicker)
 
 ## Form Setup
@@ -50,12 +55,13 @@ You can go ahead and generate static forms manually but who wants to do that? Yo
   - `radio`
   - `email`
   - `hidden`
-  - `date` _(TBD)_
-  - `datePicker` _(TBD: Starter Plan)_
+  - `date` - simple generic
+  - `datetime-local` - better for date+time scheduling and allows for `min` / `max` dateLocale strings
+  - `datepicker` - renders a styled calendar when `kwesforms` is initialized
+  - `file` (req's Starter Plan for file uploads)
   - `cc-number` _(TBD: Starter Plan : Credit card fields)_
-  - `file` _(TBD: Starter Plan)_
 
-- **[💡 Tip:]** _You can create a custom field type, then just include it with the interface `Field` type(s) ([see `./src/types/Field.ts`](./src/types/Field.ts))
+- **[💡Tip:]** _You can create a custom field type, then just include it with the interface `Field` type(s) ([see `./src/types/Field.ts`](./src/types/Field.ts))
 
 ```HTML
 <div
