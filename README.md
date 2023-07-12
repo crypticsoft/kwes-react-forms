@@ -15,10 +15,18 @@ Or you can just let `Kwesforms`` handle the typical form validation and respones
 
 ![Screenshot](./screenshot.png?raw=true 'Form Demo')
 
-@TODO items:
+### @TODO items:
 [] Minify steps for css assets to reduce bundle size
+
 [] MSW mocks with `setupTests` (restore when ready)
-[] Instructions for how to embed form(s) using React
+
+[] Installation instructions for how to embed form(s) using React (esm / dist)
+
+[] Include existing unit tests and look at removing the `size` data or making it an optional customization from the `fields.groups[]`. _Columns should be automatic but sometimes fine-grained control is warranted._
+
+[] TBD: Consider the optional dependency for `kwesforms` if the form action is customized. (_Is this kind of support even a good idea, in general?_)
+
+  - _Can this be excluded entirely by using a dynamic import?_ (see NPM `peerDependenies` vs [`optionalPeerDependencies`](https://docs.npmjs.com/cli/v9/configuring-npm/package-json#optionaldependencies)))
 
 ## Features
 
@@ -28,11 +36,15 @@ Or you can just let `Kwesforms`` handle the typical form validation and respones
 [x] Field Columns / Groups\
 [x] Preset values\
 [x] Multiple form support\
+[] [Custom Events](https://kwesforms.com/docs/v2/custom-events) - tbd: _Look at adding one in the submission handler?_
 
 ### "Starter Plan" features (TBD)
+
 [] [Multi-step forms](https://kwesforms.com/docs/v2/multistep-forms)\
-[] Submission message\
 [] [Field Type: Date picker](https://kwesforms.com/docs/v2/datepicker)
+[] After Submission :: ["Custom Messages"](https://kwesforms.com/docs/v2/form-messages)
+[] [Webhooks](https://kwesforms.com/docs/v2/webhooks)
+[] [Repeater Fields](https://kwesforms.com/docs/v2/repeater-fields)
 
 ## Form Setup
 
