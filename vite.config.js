@@ -17,10 +17,11 @@ export default defineConfig({
   ],
 
   // vitest
-  /*test: {
+  test: {
     globals: true,
     environment: 'jsdom',
     setupFiles: './src/setupTests.ts',
+    // include: './src/components/___tests___/**/*.test.tsx',
     coverage: {
       reporter: ['text', 'html'],
       exclude: [
@@ -28,7 +29,10 @@ export default defineConfig({
         'src/setupTests.ts',
       ],
     },
-  },*/
+    // transformMode: {
+    //   web: [/\.[jt]sx$/],
+    // },
+  },
 
   // build
   build: {
