@@ -17,7 +17,7 @@ interface DateProps extends React.InputHTMLAttributes<HTMLInputElement> {
  * @param rules (string)
  * @returns 
  */
-const DateTimeField: FC<DateProps> = ({ min, max, name, ...props }) => {
+const DateTimeField: FC<DateProps> = ({ min, max, rules, name, ...props }) => {
   const [value, setValue] = React.useState(null);
   return (
     <input
@@ -27,6 +27,7 @@ const DateTimeField: FC<DateProps> = ({ min, max, name, ...props }) => {
       value={value || ''}
       min={min}
       max={max}
+      rules={rules}
       onChange={(event) => setValue(event.currentTarget.value)}
       {...props}
       />)
@@ -38,7 +39,7 @@ interface DateTimePickerControlProps extends FieldControlProps {
 }
 const DateTimePickerControl: FC<DateTimePickerControlProps> = ({ name, min, max, label, rules, help, className, ...props }) => 
   <FieldControl name={name} label={label} rules={rules} help={help} className={[className, 'kw-datepicker-wrapper'].join(' ')}>
-      <DateTimeField name={name} min={min} max={max} {...props} />
+      <DateTimeField name={name} min={min} rules={rules} max={max} {...props} />
   </FieldControl>;
 
 export default DateTimePickerControl;

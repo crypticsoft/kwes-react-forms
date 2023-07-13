@@ -23,13 +23,14 @@ const DateField: FC<DateProps> = ({ value, rules, name, checked, ...props }) => 
       type="datepicker"
       value={value}
       className="input"
+      rules={rules}
       {...props}
     />
   </div>);
 
 const DatePickerControl: FC<FieldControlProps> = ({ name, label, rules, help, className, ...props }) => 
   <FieldControl name={name} label={label} rules={rules} help={help} className={className}>
-      <DateField name={name} {...props} />
+      <DateField name={name} rules={rules} {...props} />
   </FieldControl>;
 
 export default DatePickerControl;

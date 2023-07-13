@@ -25,12 +25,13 @@ const DateField: FC<DateProps> = ({ min, max, value, rules, name, checked, ...pr
     value={value}
     min={min}
     max={max}
+    rules={rules}
     {...props}
   />);
 
 const DateControl: FC<FieldControlProps> = ({ name, label, rules, help, className, ...props }) => 
   <FieldControl name={name} label={label} rules={rules} help={help} className={[className, 'kw-datepicker-wrapper'].join(' ')}>
-      <DateField name={name} {...props} />
+      <DateField name={name} rules={rules} {...props} />
   </FieldControl>;
 
 export default DateControl;

@@ -1,5 +1,5 @@
   interface Field {
-    type: 'select' | 'text' | 'hidden' | 'checkbox' | 'checkboxGroup' | 'radio' | 'email' | 'textarea' | 'password' | 'date' | 'datepicker' | 'file' | 'datetime-local';
+    type: 'select' | 'text' | 'hidden' | 'checkbox' | 'checkboxGroup' | 'radio' | 'email' | 'textarea' | 'password' | 'date' | 'datepicker' | 'file' | 'datetime-local' | 'time' | 'tel' | 'range';
     name: string;
     label: string;
     placeholder?: string;

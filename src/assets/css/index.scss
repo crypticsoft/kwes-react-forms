@@ -1,4 +1,4 @@
-@import url('./bulma.scss');
+@import './bulma.scss';
 
 :root {
   accent-color: rgb(5, 82, 199);
@@ -60,6 +60,17 @@
         margin-left: 5px;
       }
     }
+  }
+}
+
+// timepicker
+.timepicker, .input-tel {
+  &:invalid {
+    @extend .kw-border-error;
+  }
+  
+  &:valid:after {
+    @extend .kw-border-success;
   }
 }
 

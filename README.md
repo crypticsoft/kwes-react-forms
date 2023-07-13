@@ -29,14 +29,15 @@ Or you can just let `Kwesforms`` handle the typical form validation and respones
   - _Can this be excluded entirely by using a dynamic import?_ (see NPM `peerDependenies` vs [`optionalPeerDependencies`](https://docs.npmjs.com/cli/v9/configuring-npm/package-json#optionaldependencies)))
 
 ## Features
-
-[x] Title and Sub-title\
-[x] API configuration support (JSON endpoint)\
-[x] Hidden fields\
-[x] Field Columns / Groups\
-[x] Preset values\
-[x] Multiple form support\
 [] [Custom Events](https://kwesforms.com/docs/v2/custom-events) - tbd: _Look at adding one in the submission handler?_
+[] Input field types to add
+  - `tel` - phone number uses, consider allowing a `pattern` through
+  - `range`
+  - `number`
+[] How to setup variant input sizes for `small` `medium` or `large`? ([see bulma Form docs](https://bulma.io/documentation/form/general/)). Possibly allowing for the form class to include `is-small` and extend the `input` classes, accordingly. [(see sizes)](https://bulma.io/documentation/utilities/control-mixins/#sizes)
+  - `is-rounded` - would round the input fields but might need a border-radius default to be customized.
+[] `Horizontal form` - variation class `is-horizontal` on the `field` container
+
 
 ### "Starter Plan" features (TBD)
 
@@ -68,7 +69,9 @@ Or you can just let `Kwesforms`` handle the typical form validation and respones
   - `email`
   - `hidden`
   - `date` - simple generic
+  - `time` - simple generic but does have some basic validation (title) based on min/max values
   - `datetime-local` - better for date+time scheduling and allows for `min` / `max` dateLocale strings
+    - _Consider replacing this with something like [`react-datepicker`](https://reactdatepicker.com/#example-custom-time-class-name)_
   - `datepicker` - renders a styled calendar when `kwesforms` is initialized
   - `file` (req's Starter Plan for file uploads)
   - `cc-number` _(TBD: Starter Plan : Credit card fields)_

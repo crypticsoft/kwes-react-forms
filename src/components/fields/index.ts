@@ -8,6 +8,9 @@ import FileControl from './FileControl';
 import DateControl from './DateControl';
 import DatePickerControl from './DatePickerControl';
 import DateTimePickerControl from './DateTimePickerControl';
+import TimeControl from './TimeControl';
+import TelephoneControl from './TelephoneControl';
+import RangeControl from './RangeControl';
 
 export {
     CheckboxControl,
@@ -20,4 +23,7 @@ export {
     DateControl,
     DatePickerControl,
     DateTimePickerControl,
+    TimeControl,
+    TelephoneControl,
+    RangeControl,
 };

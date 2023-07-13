@@ -6,7 +6,9 @@ import CheckboxGroupControl from '@/components/fields/CheckboxGroupControl.jsx';
 import InputControl from '@/components/fields/InputControl.jsx';
 import RadioGroupControl from '@/components/fields/RadioGroupControl';
 import SelectControl from '@/components/fields/SelectControl';
-import { DatePickerControl, DateControl, DateTimePickerControl, FileControl } from '@/components/fields';
+import { DatePickerControl, DateControl, DateTimePickerControl, FileControl, TelephoneControl, RangeControl } from '@/components/fields';
+
+// import '../assets/css/index.scss';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -212,5 +214,33 @@ FileControlComponent.args = {
   rules: 'required',
   label: 'Upload a file',
   help: '* Required field',
+};
+//
+
+const TelTemplate = (args) => <TelephoneControl {...args} />;
+
+export const TelControlComponent = TelTemplate.bind({});
+
+TelControlComponent.args = {
+  name: 'schedule_date',
+  rules: 'required',
+  label: 'Enter your main phone number here so we can spam it non-stop like a robot does',
+  help: 'Format: 123-456-7890',
+  pattern: '[0-9]{3}-[0-9]{3}-[0-9]{4}',
+  placeholder: '123-456-7890',
+};
+//
+
+const RangeTemplate = (args) => <RangeControl {...args} />;
+
+export const RangeControlComponent = RangeTemplate.bind({});
+
+RangeControlComponent.args = {
+  name: 'range_selection',
+  rules: 'required',
+  label: 'Range Selector',
+  type: 'range',
+  min: 0,
+  max: 100,
 };
 //

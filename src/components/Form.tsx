@@ -12,6 +12,9 @@ import {
   DateControl,
   DatePickerControl,
   DateTimePickerControl,
+  TimeControl,
+  TelephoneControl,
+  RangeControl,
 } from './fields';
 
 const isDev = process.env.NODE_ENV !== 'production';
@@ -34,7 +37,10 @@ const controlFactory: ControlFactory = {
   checkbox: (props) => <CheckboxControl {...props} />,
   checkboxGroup: (props) => <CheckboxGroupControl {...props} />,
   radio: (props) => <RadioGroupControl {...props} />,
+  time: (props) => <TimeControl {...props} />,
   'datetime-local': (props) => <DateTimePickerControl {...props} />,
+  tel: (props) => <TelephoneControl {...props} />,
+  range: (props) => <RangeControl {...props} />,
 };
 
 /**
