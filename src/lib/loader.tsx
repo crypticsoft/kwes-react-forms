@@ -35,19 +35,28 @@ function mountForms(): Promise<void> {
 
 if (isBrowser()) {
   document.addEventListener('DOMContentLoaded', () => {
+    const script = document.createElement('script');
+
+    script.type = 'text/javascript';
+    script.defer = true;
+    script.src = "https://kwesforms.com/v2/kwes-script.js";
+
+    document.getElementsByTagName('head')[0].appendChild(script);
+
     // after mounting all forms, initialize kwesforms
     mountForms().then(() => {
       console.log('✨ all forms have been mounted 🧙🏼 ✨');
     }).finally(() => {
-        /** 
+      console.log('🧙🏼 kwesforms initialized 🧙🏼');
+
+      /** 
          * Initialize Kwesforms:
             - With a slight delay to allow for forms to be mounted and rendered before initializing kwesforms
             - Alternatively, this can be deferred and loaded using a script tag in the <head> of the page. (see CDN vs NPM loading)
         **/
-        setTimeout(() => {
-          kwesforms.init();
-          console.log('🧙🏼 kwesforms initialized 🧙🏼');
-        }, 1000);
+        // setTimeout(() => {
+          // kwesforms.init();
+        // }, 1000);
     });
   });
 }

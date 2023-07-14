@@ -8,6 +8,7 @@
   --kwes-form-padding: 30px;
   --kwes-form-bg-color: #fff;
   --kwes-form-margin: 0 0 30px;
+  --kwes-form--success-color: #23d160;
   --kwes-form--error-color: #cc0000;
   --kwes-form--error-font-size: 0.85em;
   --kwes-form--disclaimer-color: #999;
@@ -143,6 +144,9 @@
 
 .select select {
   width: 100%;
+  &.kw-border-success {
+    border: 1px solid var(--kwes-form--success-color);
+  }
 }
 
 .kw-checkbox-group .field {
@@ -177,17 +181,17 @@
 }
 
 .kw-alert-success {
-  color: #257942;
+  color: var(--kwes-form--success-color);
   background-color: #effaf3;
 }
 
-.kw-field-error-message {
+.kwes-form .kw-field-error-message {
   font-size: var(--kwes-form--error-font-size) !important;
   color: var(--kwes-form--error-color) !important;
   margin-top: 5px;
 }
 
-.kw-color-error {
+.kwes-form .kw-color-error {
   color: var(--kwes-form--error-color);
 }
 
@@ -196,7 +200,7 @@
 }
 
 .kwes-form .kw-border-success {
-  border: 1px solid #23d160;
+  border: 1px solid var(--kwes-form--success-color) !important;
 }
 
 .kw-loader {

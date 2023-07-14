@@ -43,11 +43,11 @@ export default defineConfig({
         'react',
         "react/jsx-runtime",
         'react-dom',
-        'kwesforms',
       ],
       // multiple entrypoints are supported (https://rollupjs.org/configuration-options/#input)
+
       input : {
-        main: path.resolve(__dirname, 'src/index.ts'),
+        form: path.resolve(__dirname, 'src/components/Form.tsx'),
         loader: path.resolve(__dirname, 'src/lib/loader.tsx'),
       },
 
@@ -58,12 +58,11 @@ export default defineConfig({
           'react': 'react',
           'react-dom': 'ReactDOM',
           'react/jsx-runtime': 'react/jsx-runtime',
-          'kwesforms': 'kwesforms',
         },
         format: 'esm',
         dir: 'dist',
         exports: 'named',
-        // file: 'index.js'
+        entryFileNames: 'entry-[name].js'
       },
     },
   },

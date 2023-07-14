@@ -30,10 +30,6 @@ Or you can just let `Kwesforms`` handle the typical form validation and respones
 
 ## Features
 [] [Custom Events](https://kwesforms.com/docs/v2/custom-events) - tbd: _Look at adding one in the submission handler?_
-[] Input field types to add
-  - `tel` - phone number uses, consider allowing a `pattern` through
-  - `range`
-  - `number`
 [] How to setup variant input sizes for `small` `medium` or `large`? ([see bulma Form docs](https://bulma.io/documentation/form/general/)). Possibly allowing for the form class to include `is-small` and extend the `input` classes, accordingly. [(see sizes)](https://bulma.io/documentation/utilities/control-mixins/#sizes)
   - `is-rounded` - would round the input fields but might need a border-radius default to be customized.
 [] `Horizontal form` - variation class `is-horizontal` on the `field` container
@@ -68,6 +64,9 @@ Or you can just let `Kwesforms`` handle the typical form validation and respones
   - `radio`
   - `email`
   - `hidden`
+  - `tel` - phone-specific input with `pattern` capabilities
+  - `range` - simple generic
+  - `number` - simple generic
   - `date` - simple generic
   - `time` - simple generic but does have some basic validation (title) based on min/max values
   - `datetime-local` - better for date+time scheduling and allows for `min` / `max` dateLocale strings

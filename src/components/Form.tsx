@@ -15,6 +15,7 @@ import {
   TimeControl,
   TelephoneControl,
   RangeControl,
+  NumberControl,
 } from './fields';
 
 const isDev = process.env.NODE_ENV !== 'production';
@@ -41,6 +42,7 @@ const controlFactory: ControlFactory = {
   'datetime-local': (props) => <DateTimePickerControl {...props} />,
   tel: (props) => <TelephoneControl {...props} />,
   range: (props) => <RangeControl {...props} />,
+  number: (props) => <NumberControl {...props} />,
 };
 
 /**

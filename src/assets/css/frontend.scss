@@ -2389,10 +2389,14 @@ fieldset[disabled] .kw-fieldgroup-button {
 .select select,
 .textarea {
   background-color: #f5f5f5;
-  border-color: transparent;
+  // border-color: transparent;
   border-radius: 8px;
   color: #363636;
 }
+.select.kw-border-success {
+  border: 1px solid #23d160;
+}
+
 .input::-moz-placeholder,
 .select select::-moz-placeholder,
 .textarea::-moz-placeholder {

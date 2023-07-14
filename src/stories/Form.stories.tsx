@@ -6,7 +6,7 @@ import CheckboxGroupControl from '@/components/fields/CheckboxGroupControl.jsx';
 import InputControl from '@/components/fields/InputControl.jsx';
 import RadioGroupControl from '@/components/fields/RadioGroupControl';
 import SelectControl from '@/components/fields/SelectControl';
-import { DatePickerControl, DateControl, DateTimePickerControl, FileControl, TelephoneControl, RangeControl } from '@/components/fields';
+import { DatePickerControl, DateControl, DateTimePickerControl, FileControl, TelephoneControl, RangeControl, NumberControl } from '@/components/fields';
 
 // import '../assets/css/index.scss';
 
@@ -240,6 +240,19 @@ RangeControlComponent.args = {
   rules: 'required',
   label: 'Range Selector',
   type: 'range',
+  min: 0,
+  max: 100,
+};
+//
+
+const NumberTemplate = (args) => <NumberControl {...args} />;
+
+export const NumControlComponent = NumberTemplate.bind({});
+
+NumControlComponent.args = {
+  name: 'num_selection',
+  rules: 'required',
+  label: 'Select a number please',
   min: 0,
   max: 100,
 };

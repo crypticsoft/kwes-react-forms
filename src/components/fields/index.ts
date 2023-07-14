@@ -11,6 +11,7 @@ import DateTimePickerControl from './DateTimePickerControl';
 import TimeControl from './TimeControl';
 import TelephoneControl from './TelephoneControl';
 import RangeControl from './RangeControl';
+import NumberControl from './NumberControl';
 
 export {
     CheckboxControl,
@@ -26,4 +27,5 @@ export {
     TimeControl,
     TelephoneControl,
     RangeControl,
+    NumberControl,
 };
