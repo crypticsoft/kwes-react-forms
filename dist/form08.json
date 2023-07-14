@@ -1,0 +1,79 @@
+{
+  "id": "form08",
+  "title": "Schedule an Appointment",
+  "subTitle": "Please fill out the form below to schedule an appointment:",
+  "disclaimer": "By submitting this form, you agree to allow us to contact you via email and sending you SMS notifications.",
+  "submission": {
+    "button": "Submit"
+  },
+  "fields": [
+    {
+      "group": [
+        {
+          "field": {
+            "type": "text",
+            "name": "name",
+            "rules": "required",
+            "label": "Your Name"
+          }
+        },
+        {
+          "field": {
+            "type": "email",
+            "name": "email",
+            "rules": "required",
+            "label": "Email"
+          }
+        }
+      ]
+    },
+    {
+      "group": [
+        {
+          "field": {
+            "type": "time",
+            "name": "time",
+            "rules": "required",
+            "label": "Best available time",
+            "min": "09:00",
+            "max": "18:00",
+            "help": "Please select a time between 9am and 6pm"
+          }
+        },
+        {
+          "field": {
+            "type": "datetime-local",
+            "name": "appointment_time",
+            "rules": "required",
+            "label": "Schedule a Date/Time",
+            "min": "2023-07-14T00:00",
+            "max": "2023-07-30T23:59"
+          }
+        },
+        {
+          "field": {
+            "type": "file",
+            "name": "file_upload",
+            "rules": "required",
+            "label": "Schedule a Date Instead"
+          }
+        },
+        {
+          "field": {          
+            "type": "date",
+            "name": "appointment_date_only",
+            "rules": "required",
+            "label": "Schedule a Date Only",
+            "defaultValue": "2023-07-14"
+          }
+        }
+      ]
+    },
+    {
+      "type": "textarea",
+      "name": "experience",
+      "rules": "required",
+      "label": "Experience"
+    }    
+  ]
+}
