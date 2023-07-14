@@ -1,5 +1,8 @@
 import React, { useRef } from 'react';
-// import kwesforms from 'kwesforms';
+/**
+ * @todo: Items to consider for future releases:
+ * (no-reload="true") "Starter Plan" (TBD) ~ use a custom action/handler for now
+ */
 
 import {
   InputControl,
@@ -111,13 +114,14 @@ const Form: React.FC<FormProps> = ({ id, data, action, handler }) => {
   const errorMessage = data.submission?.error || null;
 
   /**
-   * KWES Form
-   * todo: consider adding error messages around required fields. ie form "id"
-   * (no-reload="true") "Starter Plan"
+   * KWESForm
+   * Note: Kwesforms will handle the validation and method handling but for custom actions/handlers,
+          they will use a 'POST' action and fallback to built-in field validation
    */
   return (
     <form
       className="kwes-form"
+      {...(!action ? { method: 'POST' } : null)}
       {...(!action ? { noValidate: true } : null)}
       acceptCharset="utf-8"
       ref={innerRef}
