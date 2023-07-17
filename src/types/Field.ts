@@ -13,6 +13,19 @@
     rows?: number;
   }
 
+
+  interface SelectField extends React.InputHTMLAttributes<HTMLSelectElement> {
+    name: string;
+    label: string;
+    rules?: string[];
+    defaultOption?: { key: string, value: string }[];
+    help?: string;
+    options: { key: string, value: string }[];
+    multiple?: boolean;
+    size?: number;
+    className?: string;
+  }
+
   interface FieldControlProps {
     name: string;
     label: string;

@@ -167,6 +167,25 @@ Select.args = {
 };
 //
 
+const MultiSelectTemplate = (args) => <SelectControl {...args} />;
+
+export const MultiSelect = MultiSelectTemplate.bind({});
+
+// _control.storyName = 'Checkbox Group';
+MultiSelect.args = {
+  type: 'select',
+  name: 'terms',
+  multiple: true,
+  size: 3,
+  rules: 'accepted',
+  label: 'Pick a favorite fruit:',
+  help: '* Required field',
+  defaultOption: { Banana: 'Banana' },
+  options: { Apple: 'Apple', Banana: 'Banana', Grape: 'Grape', Orange: 'Orange', Pear: 'Pear', Pineapple: 'Pineapple', Strawberry: 'Strawberry' }
+};
+
+//
+
 const DateTimePickerTemplate = (args) => <DateTimePickerControl {...args} />;
 
 export const DateTimePicker = DateTimePickerTemplate.bind({});

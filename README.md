@@ -57,7 +57,7 @@ Or you can just let `Kwesforms`` handle the typical form validation and respones
 
   - `text`
   - `textArea`
-  - `select`
+  - `select` - expanded ability to include `multiple` and `size` attributes for multi-select
   - `checkbox`
   - `checkboxGroup`
   - `password`

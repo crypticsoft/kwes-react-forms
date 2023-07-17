@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 /**
  * @todo: Items to consider for future releases:
  * (no-reload="true") "Starter Plan" (TBD) ~ use a custom action/handler for now
+ * - submit button className(s) as props
  */
 
 import {
@@ -149,7 +150,7 @@ const Form: React.FC<FormProps> = ({ id, data, action, handler }) => {
               <button
                 // onClick={handleSubmit}
                 data-testid="submit-button"
-                className="button is-info is-primary is-fullwidth submit-button is-medium"
+                className="button is-info is-primary is-fullwidth submit-button is-normal"
                 type="submit"
               >
                 {submitButton}
