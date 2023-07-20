@@ -49,7 +49,12 @@ const SelectControl = ({ name, className, label, rules, defaultOption, multiple,
           ))}
         </select>
       </div>
-      {help && <p className="help">{help}</p>}
+      {help || value && <p className="help">
+        <>
+        {help ? help : ''}
+        {value ? <p>{JSON.stringify(value)}</p> : ''}
+        </>
+        </p>}
     </div>
   );
 };

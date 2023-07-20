@@ -6,9 +6,9 @@ const FieldControl: FC<FieldControlProps> = ({ className, help, label, ...props 
    <label className={[className, 'label'].join(' ')} htmlFor={props.name}>
      {label}
    </label>
-   <p>
+   <div>
     {props.children}
-   </p>
+   </div>
  </Field>);
 }
 

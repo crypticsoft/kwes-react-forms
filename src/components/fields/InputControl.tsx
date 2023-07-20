@@ -9,7 +9,7 @@ interface InputControlProps extends React.InputHTMLAttributes<HTMLInputElement> 
   help?: string;
 }
 
-const InputField: FC<InputControlProps> = forwardRef((props, ref: ForwardedRef<HTMLInputElement>)  => {
+export const InputField: FC<InputControlProps> = forwardRef((props, ref: ForwardedRef<HTMLInputElement>)  => {
   // const [value, setValue] = useState(props.defaultValue || '');
   // const controlRef = useRef<HTMLInputElement>(null);
 
