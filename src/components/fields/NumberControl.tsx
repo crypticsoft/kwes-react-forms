@@ -19,7 +19,7 @@ interface NumProps extends React.InputHTMLAttributes<HTMLInputElement> {
  * @param rules (string)
  * @returns 
  */
-const NumberField: FC<NumProps> = ({ min, max, value, rules, name, pattern, checked, ...props }) => (
+export const NumberField: FC<NumProps> = ({ min, max, value, rules, name, pattern, ...props }) => (
   <input
     name={name}
     type="number"

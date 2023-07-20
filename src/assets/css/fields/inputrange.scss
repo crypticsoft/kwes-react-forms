@@ -53,6 +53,23 @@ $ie-bottom-track-color: darken($track-color, $contrast) !default;
   width: $thumb-width;
 }
 
+.range-input-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+
+  .field {
+    width: 100px;
+    max-width: 200px;
+    display: flex;
+    align-items: center;
+  }
+
+  .label {
+    margin-bottom: inherit;
+  }
+}
+
 [type='range'] {
   -webkit-appearance: none;
   background: transparent;

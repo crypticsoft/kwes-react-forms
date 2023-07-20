@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import FieldControl from '../FieldControl';
-import InputField from './InputControl';
+import NumberField from './NumberControl';
 
 // CSS base: https://github.com/darlanrod/input-range-scss
 import '../../assets/css/fields/inputrange.scss';
@@ -25,7 +25,7 @@ interface RangeProps extends React.InputHTMLAttributes<HTMLInputElement> {
 const RangeField: FC<RangeProps> = ({ min, max, step, rules, name, checked, ...props }) => {
     const [value, setValue] = React.useState('');
     return (
-        <>
+        <div className="range-input-wrapper">
           <input
             name={name}
             className='range-input'
@@ -38,19 +38,19 @@ const RangeField: FC<RangeProps> = ({ min, max, step, rules, name, checked, ...p
             onChange={(event) => setValue(event.currentTarget.value)}
             {...props}
           />
-          <InputField
+          <NumberField
             // ref={controlRef}
             // readOnly={true}
             onChange={(event) => setValue(event.currentTarget.value)}
             {...props}
             id={`${name}-input`}
-            type='text'
+            type='number'
             data-testid={`${name}-input`}
             value={value}
             rules={rules}
             required={rules?.includes('required') ? true : false}
           />
-        </>
+        </div>
     )};
 
 const RangeControl: FC<FieldControlProps> = ({ name, label, rules, help, className, ...props }) => 
