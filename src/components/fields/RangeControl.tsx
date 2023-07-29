@@ -13,8 +13,9 @@ import '../../assets/css/fields/inputrange.scss';
  */
 interface RangeProps extends React.InputHTMLAttributes<HTMLInputElement> {
   rules?: string;
-  min?: string;
-  max?: string;
+  min?: number;
+  max?: number;
+  step?: number;
 }
 
 /**
@@ -22,8 +23,8 @@ interface RangeProps extends React.InputHTMLAttributes<HTMLInputElement> {
  * @param rules (string)
  * @returns 
  */
-const RangeField: FC<RangeProps> = ({ min, max, step, rules, name, checked, ...props }) => {
-    const [value, setValue] = React.useState('');
+const RangeField: FC<RangeProps> = ({ defaultValue, min, max, step, rules, name, checked, ...props }) => {
+    const [value, setValue] = React.useState(defaultValue ?? '');
     return (
         <div className="range-input-wrapper">
           <input
@@ -31,10 +32,10 @@ const RangeField: FC<RangeProps> = ({ min, max, step, rules, name, checked, ...p
             className='range-input'
             type='range'
             value={value}
-            rules={rules}
-            {...(min && { min: Number(min) })}
-            {...(max && { max: Number(max) })}
-            {...(step && { step: Number(step) })}
+            {...(rules && { rules })}
+            {...(min && { min })}
+            {...(max && { max })}
+            {...(step && { step })}
             onChange={(event) => setValue(event.currentTarget.value)}
             {...props}
           />

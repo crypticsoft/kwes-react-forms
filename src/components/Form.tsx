@@ -136,10 +136,12 @@ const Form: React.FC<FormProps> = ({ id, data, action, handler }) => {
         <fieldset className="container">
           {/* Form Title & Sub-Title */}
           {data.title && (
-            <legend>
-              <h2>{data.title}</h2>
-              {data.subTitle && <p>{data.subTitle}</p>}
-            </legend>
+            <div className="columns">
+              <div className="column">
+                <span className="h2">{data.title}</span><br />
+                {data.subTitle && <span>{data.subTitle}</span>}
+              </div>
+            </div>
           )}
 
           {/* Generate Field(s) */}

@@ -10,8 +10,9 @@ import FieldControl from '../FieldControl';
  */
 interface NumProps extends React.InputHTMLAttributes<HTMLInputElement> {
   rules?: string;
-  min: string;
-  max: string;
+  min?: number;
+  max?: number;
+  step?: number;
 }
 
 /**
@@ -19,21 +20,21 @@ interface NumProps extends React.InputHTMLAttributes<HTMLInputElement> {
  * @param rules (string)
  * @returns 
  */
-export const NumberField: FC<NumProps> = ({ min, max, value, rules, name, pattern, ...props }) => (
+export const NumberField: FC<NumProps> = ({ defaultValue, min, max, value, rules, name, pattern, ...props }) => (
   <input
     name={name}
     type="number"
-    className="input"
-    value={value}
+    className={['input', props?.className].join(' ').trim()}
+    value={value ?? defaultValue}
     rules={rules}
     min={min}
     max={max}
     {...props}
   />);
 
-const NumberControl: FC<FieldControlProps> = ({ name, label, rules, help, className, ...props }) => 
+const NumberControl: FC<FieldControlProps> = ({ min, max, step, name, label, rules, help, className, ...props }) => 
   <FieldControl name={name} label={label} rules={rules} help={help} className={[className, 'kw-tel-wrapper'].join(' ')}>
-      <NumberField name={name} rules={rules} {...props} />
+      <NumberField min={min} max={max} step={step} name={name} rules={rules} {...props} />
   </FieldControl>;
 
 export default NumberControl;

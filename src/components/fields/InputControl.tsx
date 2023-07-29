@@ -1,13 +1,8 @@
-import React, { Fragment, useState, useRef, forwardRef, ForwardedRef, FC } from 'react';
+import React, { Fragment, useRef, forwardRef, ForwardedRef, FC } from 'react';
 import Field from './../Field';
 import useErrorObserver from '../../hooks/useErrorObserver';
 
 //TODO: Should I add forwardRefs for all Field controls?
-interface InputControlProps extends React.InputHTMLAttributes<HTMLInputElement> {
-  label: string;
-  rules?: string;
-  help?: string;
-}
 
 export const InputField: FC<InputControlProps> = forwardRef((props, ref: ForwardedRef<HTMLInputElement>)  => {
   // const [value, setValue] = useState(props.defaultValue || '');
@@ -52,6 +47,7 @@ const InputControl = (props) => {
           rules={props.rules}
           {...((props.type !== 'hidden' && error) && {...ariaProps})}
           {...props}
+          className={['input', props.className].join(' ').trim()}
           required={props?.rules?.includes('required') ? true : false}
         />
       </Fragment>

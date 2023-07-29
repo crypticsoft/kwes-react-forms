@@ -263,6 +263,7 @@ RangeControlComponent.args = {
   max: 100,
   step: 20,
   help: 'Enter a number between the range of (0 and 100) at a step of 2',
+  defaultValue: 60,
 };
 //
 
@@ -277,5 +278,6 @@ NumControlComponent.args = {
   help: 'Enter a number between 0 and 100',
   min: 0,
   max: 100,
+  defaultValue: 25,
 };
 //

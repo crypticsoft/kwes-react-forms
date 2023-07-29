@@ -7,30 +7,26 @@ import FieldControl from '../FieldControl';
  * Requirements: 
  *  - field type: "tel"
  */
-interface TelProps extends React.InputHTMLAttributes<HTMLInputElement> {
-  rules?: string;
-}
 
 /**
  * expected Validation Rule / Attribute: rules="file"
  * @param rules (string)
  * @returns 
  */
-const TelField: FC<TelProps> = ({ help, value, rules, name, pattern, checked, ...props }) => (
+const TelField: FC<TelProps> = ({ help, value, name, pattern, checked, ...props }) => (
   <input
     name={name}
     type="tel"
-    className="input input-tel"
+    className={['input input-tel', props?.className].join(' ').trim()}
     value={value}
-    rules={rules}
     pattern={pattern}
     aria-label={help}
     {...props}
   />);
 
-const TelControl: FC<FieldControlProps> = ({ name, label, rules, help, className, ...props }) => 
-  <FieldControl name={name} label={label} rules={rules} help={help} className={[className, 'kw-tel-wrapper'].join(' ')}>
-      <TelField name={name} rules={rules} help={help} {...props} />
+const TelControl: FC<FieldControlProps> = ({ name, rules, label, help, className, ...props }) => 
+  <FieldControl name={name} label={label} help={help} className={[className, 'kw-tel-wrapper', (rules?.includes('required') ? 'required' : '')].join(' ')}>
+      <TelField name={name} help={help} {...props} />
   </FieldControl>;
 
 export default TelControl;
