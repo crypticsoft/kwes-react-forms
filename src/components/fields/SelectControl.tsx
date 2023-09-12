@@ -11,7 +11,7 @@ export const SelectField: FC<SelectControlProps> = forwardRef((props, ref: Forwa
       ref={ref}
       id={`${props.name}-select`}
       data-testid={`${props.name}-select`}
-      className={['select', props.className ? props.className : ''].join(' ').trim()}
+      className={['select', props.className ? props.className : '', !props?.multiple ?? 'pl-2'].join(' ').trim()}
       {...props}
     >
       {props.children}

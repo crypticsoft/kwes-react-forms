@@ -19,7 +19,7 @@ const RangeControlComponentArgs = {
     defaultValue: 60,
 };
   
-export const DateTimePicker = { 
+export const Range = { 
     args: {
         label: RangeControlComponentArgs.label,
         rules: RangeControlComponentArgs.rules,

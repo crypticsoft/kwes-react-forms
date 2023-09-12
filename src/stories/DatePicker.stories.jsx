@@ -1,19 +1,20 @@
 import DatePickerControl from '@/components/fields/DatePickerControl';
 
+//
+const DatePickerArgs = {
+    name: 'schedule',
+    rules: 'required',
+    label: 'Book a date (renders styled-component when kwesforms is initialized)',
+    help: '* Required field',
+};
+
 const meta = {
     component: DatePickerControl,
     title: 'Date Picker',
 };
 
 export default meta;
-//
-const DatePickerArgs = {
-    name: 'schedule',
-    rules: 'required',
-    label: 'Book a date (renders component when kwesforms is initialized)',
-    help: '* Required field',
-};
-  
+
 
 export const DateTimePicker = { 
     args: {

@@ -24,7 +24,7 @@ export const NumberField: FC<NumProps> = ({ defaultValue, min, max, value, rules
   <input
     name={name}
     type="number"
-    className={['input', props?.className].join(' ').trim()}
+    className={['input', props?.className, 'pl-2'].join(' ').trim()}
     value={value ?? defaultValue}
     rules={rules}
     min={min}

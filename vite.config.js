@@ -43,6 +43,7 @@ export default defineConfig({
         'react',
         "react/jsx-runtime",
         'react-dom',
+        'kwesforms',
       ],
       // multiple entrypoints are supported (https://rollupjs.org/configuration-options/#input)
 

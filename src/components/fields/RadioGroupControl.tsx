@@ -16,7 +16,7 @@ interface OptionProps {
  * todo: disabled, defaultValue
  */
 const Option: FC<OptionProps> = ({ name, label, onChange, value }) => (
-  <>
+  <div className="control">
     <label key={label}>
       <input
         onChange={onChange}
@@ -27,7 +27,7 @@ const Option: FC<OptionProps> = ({ name, label, onChange, value }) => (
       />{' '}
       {label}
     </label>
-  </>
+  </div>
 );
 
 interface RadioGroupControlProps {
@@ -51,16 +51,16 @@ const RadioGroupControl = (props: RadioGroupControlProps) => {
           {...(props.rules && { rules: props.rules })}
         >
           <legend className={labelClassName}>{props.label}</legend>
-          {Object.entries(props.options).map(([k, v]) => (
-            <Option
-              key={k}
-              label={k}
-              name={props.name} /* same name for all radios in a group */
-              value={v}
-              options={{ [k]: v }}
-              onChange={props.onChange}
-              // {...(props.defaultOption ? { defaultOption={props.defaultOption} } : {})}
-            />
+          {props.options && Object.entries(props.options).map(([k, v]) => (
+            <div key={k} className="field">
+              <Option
+                label={k}
+                name={props.name} /* same name for all radios in a group */
+                value={v}
+                onChange={props.onChange}
+                // {...(props.defaultOption ? { defaultOption={props.defaultOption} } : {})}
+              />
+            </div>
           ))}
 
         </fieldset>

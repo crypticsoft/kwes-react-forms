@@ -31,6 +31,17 @@
 
   --kwes-form--button-bg-color: #368ace;
   --kwes-form--button-bg-color-hover: #1471bd;
+
+  --kwes-form--title-size: 1.75em;
+  --kwes-form--title-margin-bottom: 0.5714em;
+  --kwes-form--title-line-height: 1.2;
+  --kwes-form--title-color: rgba(0, 0, 0, 0.9);
+
+  --kwes-form--sub-title-size: 1.25em;
+  --kwes-form--sub-title-line-height: 1.5;
+  --kwes-form--sub-title-margin-bottom: 0.5714em;
+  --kwes-form--sub-title-color: rgba(0, 0, 0, 0.9);
+
 }
 
 
@@ -106,6 +117,23 @@
 .kwes-form .select.is-danger::after {
   border-color: var(--kwes-form--error-color);
   top: 35%;
+}
+
+// title / sub-title
+.kwes-form fieldset > .columns > .column > .h2 {
+  font-size: var(--kwes-form--title-size);
+  color: var(--kwes-form--title-color);
+  line-height: var(--kwes-form--title-line-height);
+  margin-bottom: var(--kwes-form--title-margin-bottom);
+  display: inline-block;
+}
+
+.kwes-form fieldset > .columns > .column > span:not(.h2) {
+  font-size: var(--kwes-form--sub-title-size);
+  color: var(--kwes-form--sub-title-color);
+  line-height: var(--kwes-form--sub-title-line-height);
+  margin-bottom: var(--kwes-form--sub-title-margin-bottom);
+  display: inline-block;
 }
 
 .radio-control fieldset label,

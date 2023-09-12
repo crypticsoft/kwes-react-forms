@@ -1,4 +1,4 @@
-import { CheckboxComponent } from './CheckboxControl';
+import CheckboxComponent from '@/components/fields/Checkbox';
 
 const meta = {
     component: CheckboxComponent,

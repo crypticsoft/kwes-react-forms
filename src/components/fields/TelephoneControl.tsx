@@ -17,7 +17,7 @@ const TelField: FC<TelProps> = ({ help, value, name, pattern, checked, ...props 
   <input
     name={name}
     type="tel"
-    className={['input input-tel', props?.className].join(' ').trim()}
+    className={['input input-tel', props?.className, 'pl-2'].join(' ').trim()}
     value={value}
     pattern={pattern}
     aria-label={help}

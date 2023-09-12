@@ -16,7 +16,7 @@ const TelControlComponentArgs = {
     placeholder: '123-456-7890',
 };
 
-export const DateTimePicker = { 
+export const Telephone = { 
     args: {
         label: TelControlComponentArgs.label,
         rules: TelControlComponentArgs.rules,

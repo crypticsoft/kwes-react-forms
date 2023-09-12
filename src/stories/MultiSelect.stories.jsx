@@ -1,8 +1,8 @@
-import MultiSelectControl from '@/components/fields/MultiSelectControl';
+import SelectControl from '@/components/fields/SelectControl';
 
 const meta = {
-    component: MultiSelectControl,
-    title: 'Select',
+    component: SelectControl,
+    title: 'Multi-Select',
 };
 
 export default meta;
@@ -25,7 +25,9 @@ export const MultiSelect = {
         rules: MultiSelectArgs.rules,
         help: MultiSelectArgs.help,
         options: MultiSelectArgs.options,
-        defaultOption: MultiSelectArgs.name,
+        defaultOption: MultiSelectArgs.defaultOption,
+        size: MultiSelectArgs.size,
+        multiple: MultiSelectArgs.multiple,
     },
     // name: 'Checkbox Group'
 };

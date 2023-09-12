@@ -21,7 +21,7 @@ const DateField: FC<DateProps> = ({ min, max, value, rules, name, checked, ...pr
   <input
     name={name}
     type="date"
-    className="input"
+    className="input pl-2"
     value={value}
     min={min}
     max={max}

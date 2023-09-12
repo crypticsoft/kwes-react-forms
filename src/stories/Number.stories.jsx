@@ -17,7 +17,7 @@ const NumControlComponentArgs = {
     defaultValue: 25,
 };
     
-export const DateTimePicker = { 
+export const NumControl = { 
     args: {
         label: NumControlComponentArgs.label,
         rules: NumControlComponentArgs.rules,

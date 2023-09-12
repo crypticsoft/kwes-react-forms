@@ -47,7 +47,7 @@ const InputControl = (props) => {
           rules={props.rules}
           {...((props.type !== 'hidden' && error) && {...ariaProps})}
           {...props}
-          className={['input', props.className].join(' ').trim()}
+          className={['input', props.className, 'pl-2'].join(' ').trim()}
           required={props?.rules?.includes('required') ? true : false}
         />
       </Fragment>

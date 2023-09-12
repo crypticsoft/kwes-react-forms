@@ -22,7 +22,7 @@ const DateTimeField: FC<DateProps> = ({ min, max, rules, name, ...props }) => {
   return (
     <input
       type="datetime-local"
-      className="input"
+      className="input pl-2"
       name={name}
       value={value || ''}
       min={min}

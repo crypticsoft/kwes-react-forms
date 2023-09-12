@@ -2728,6 +2728,11 @@ fieldset[disabled] .radio {
   color: #7a7a7a;
   cursor: not-allowed;
 }
+
+[data-kw-group="true"] > .field {
+  margin-bottom: 0.5rem;
+}
+
 .radio + .radio {
   margin-left: 0.5em;
 }
@@ -3490,6 +3495,7 @@ fieldset[disabled] .select select:hover {
 }
 .field.is-grouped > .control {
   flex-shrink: 0;
+  width: 100%;
 }
 .field.is-grouped > .control:not(:last-child) {
   margin-bottom: 0;
@@ -5804,11 +5810,6 @@ a.has-text-danger-dark:hover {
   padding-bottom: calc(0.5em + 1px);
 }
 
-.select select {
-  padding-left: 15px;
-  font-size: 16px;
-  height: 45px;
-}
 .select:not(.is-multiple):not(.is-loading):after {
   border-width: 2px;
   width: 0.45rem;

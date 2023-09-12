@@ -27,7 +27,7 @@ const TextAreaControl: FC<TextAreaControlProps> = ({ name, rules, label, help, c
         id={`${name}-textarea`}
         data-testid={`${name}-textarea`}
         name={name}
-        className={[defaultClassName, props.type, className].join(' ')}
+        className={[defaultClassName, props.type, className, 'pl-2'].join(' ')}
         onChange={(event) => setValue(event.currentTarget.value)}
         {...(rules ? { rules } : {})}
         {...(error ? {...ariaProps} : {})}

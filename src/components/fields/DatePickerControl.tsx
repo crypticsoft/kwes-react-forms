@@ -22,7 +22,7 @@ const DateField: FC<DateProps> = ({ value, rules, name, checked, ...props }) => 
       name={name}
       type="datepicker"
       value={value}
-      className="input"
+      className="input pl-2"
       rules={rules}
       {...props}
     />
