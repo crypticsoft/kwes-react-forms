@@ -80,6 +80,7 @@
     id: string;
     data: FormData;
     action?: string;
+    method?: string;
     handler?: () => void;
   }
 

@@ -106,7 +106,7 @@ const generateFields = (fields: (Field | Group)[]) =>
  * @param data { FormData }
  * @returns JSX.Element
  */
-const Form: React.FC<FormProps> = ({ id, data, action, handler }) => {
+const Form: React.FC<FormProps> = ({ id, data, action, handler, method = 'POST' }) => {
   const innerRef = useRef<HTMLFormElement>(null);
   const formAction = action ?? `https://kwes.io/api/foreign/forms/${id}`; // allows for custom form action but default to kwesforms
   const disclaimer = data.disclaimer;
@@ -118,11 +118,12 @@ const Form: React.FC<FormProps> = ({ id, data, action, handler }) => {
    * KWESForm
    * Note: Kwesforms will handle the validation and method handling but for custom actions/handlers,
           they will use a 'POST' action and fallback to built-in field validation
+          No data, we assume it has a custom action/handler; bypasses kwesforms entirely.
    */
   return (
     <form
       className="kwes-form"
-      {...(!action ? { method: 'POST' } : null)}
+      {...(!data ? { method } : null)}
       {...(!action ? { noValidate: true } : null)}
       acceptCharset="utf-8"
       ref={innerRef}
