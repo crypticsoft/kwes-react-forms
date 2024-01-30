@@ -17,7 +17,8 @@ Or you can just let `Kwesforms`` handle the typical form validation and respones
 
 ### Where to begin?
 Run storybook and take a look at the provided examples and review our [installation instructions](https://kwesforms-react-docs.vercel.app/docs/installation).
-
+The installation instructions refer to a nextJS example application. You can find that related source here:
+[crypticsoft/nextjs-simple](https://github.com/crypticsoft/nextjs-simple)
 
 ## Form Setup
 
