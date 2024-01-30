@@ -15,33 +15,9 @@ Or you can just let `Kwesforms`` handle the typical form validation and respones
 
 ![Screenshot](./screenshot.png?raw=true 'Form Demo')
 
-### @TODO items:
-[] Minify steps for css assets to reduce bundle size
+### Where to begin?
+Run storybook and take a look at the provided examples and review our [installation instructions](https://kwesforms-react-docs.vercel.app/docs/installation).
 
-[] MSW mocks with `setupTests` (restore when ready)
-
-[] Installation instructions for how to embed form(s) using React (esm / dist)
-
-[] Include existing unit tests and look at removing the `size` data or making it an optional customization from the `fields.groups[]`. _Columns should be automatic but sometimes fine-grained control is warranted._
-
-[] TBD: Consider the optional dependency for `kwesforms` if the form action is customized. (_Is this kind of support even a good idea, in general?_)
-
-  - _Can this be excluded entirely by using a dynamic import?_ (see NPM `peerDependenies` vs [`optionalPeerDependencies`](https://docs.npmjs.com/cli/v9/configuring-npm/package-json#optionaldependencies)))
-
-## Features
-[] [Custom Events](https://kwesforms.com/docs/v2/custom-events) - tbd: _Look at adding one in the submission handler?_
-[] How to setup variant input sizes for `small` `medium` or `large`? ([see bulma Form docs](https://bulma.io/documentation/form/general/)). Possibly allowing for the form class to include `is-small` and extend the `input` classes, accordingly. [(see sizes)](https://bulma.io/documentation/utilities/control-mixins/#sizes)
-  - `is-rounded` - would round the input fields but might need a border-radius default to be customized.
-[] `Horizontal form` - variation class `is-horizontal` on the `field` container
-
-
-### "Starter Plan" features (TBD)
-
-[] [Multi-step forms](https://kwesforms.com/docs/v2/multistep-forms)\
-[] [Field Type: Date picker](https://kwesforms.com/docs/v2/datepicker)
-[] After Submission :: ["Custom Messages"](https://kwesforms.com/docs/v2/form-messages)
-[] [Webhooks](https://kwesforms.com/docs/v2/webhooks)
-[] [Repeater Fields](https://kwesforms.com/docs/v2/repeater-fields)
 
 ## Form Setup
 
@@ -136,6 +112,8 @@ In order to use responsive columns, you can wrap the fields with a `group` array
 
 With the example below, replace `{column-size}` with the column number you want to use. ([see the bulma 12-column grid system](https://bulma.io/documentation/columns/sizes/#12-columns-system))
 
+`_examples` ~ See this path for additional form examples to get you started.
+
 ```JSON
 {
   ...
@@ -153,7 +131,3 @@ With the example below, replace `{column-size}` with the column number you want 
 
 **[ 💡 Tip: ]** Try and include your form configurations (JSON) files locally and serve them from the same domain. (see `dist/public paths`)
 
-
-## Form Examples
-
-`./public` ~ Here are some form examples to get you started.
